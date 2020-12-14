@@ -1,0 +1,146 @@
+<!---header--->
+<div class="header-section">
+    <div class="container">
+        <div class="head-top">
+            <div class="social-icon">
+                <a href="#"><i class="icon"></i></a>
+                <a href="#"><i class="icon1"></i></a>
+                <a href="#"><i class="icon2"></i></a>
+                <a href="#"><i class="icon3"></i></a>
+                <a href="#"><i class="icon4"></i></a>
+            </div>
+            <div class="email">
+                <ul>
+                    <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="#">info@example.com</a> </li>
+                    <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+                    <li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">注册</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <nav class="navbar navbar-default">
+            <!---Brand and toggle get grouped for better mobile display--->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <h1><a href="index.html"><span>轻松 </span>短租</a></h1>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="home"><a href="index.html">主页 <span class="sr-only">(current)</span></a></li>
+                    <li id="pages" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="agents.html">Agents</a></li>
+                            <li><a href="forrent.html">For Rent</a></li>
+                            <li><a href="forsale.html">For Sale</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="faqs.html">FAQs</a></li>
+                            <li><a href="idxpress.html">IDXpress</a></li>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </li>
+                    <li id="property" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Property<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="defaultvariation.html">Default – Variation</a></li>
+                            <li><a href="agentinsidebarvariation.html">Agent in Sidebar - Variation</a></li>
+                            <li><a href="galleryvariation.html">Gallery - Variation</a></li>
+                        </ul>
+                    </li>
+                    <li id="gallery" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="2columnsgallery.html">2 Columns Gallery</a></li>
+                            <li><a href="3columnsgallery.html">3 Columns Gallery</a></li>
+                            <li><a href="4columnsgallery.html">4 Columns Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li id="blog"><a href="blog.html">Blog</a></li>
+                    <li id="codes"><a href="codes.html">Codes</a></li>
+                    <li id="contact"><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="phone">
+                    <span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>666-888-333-222</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!---header--->
+
+<!-- login -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body real-spa">
+                <div class="login-grids">
+                    <div class="login">
+
+                        <div class="login-right">
+                            <form>
+                                <h3>Login</h3>
+                                <input type="text" value="Enter your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your Email';}" required="">
+                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                                <h4><a href="#">Forgot password</a> / <a href="#">Create new password</a></h4>
+                                <div class="single-bottom">
+                                    <input type="checkbox"  id="brand" value="">
+                                    <label for="brand"><span></span>Remember Me.</label>
+                                </div>
+                                <input type="submit" value="Login Now" >
+                            </form>
+                        </div>
+
+                    </div>
+                    <p>By logging in you agree to our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //login -->
+<!-- Register -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body real-spa">
+                <div class="login-grids">
+                    <div class="login">
+                        <div class="login-right">
+                            <form>
+                                <h3>Register </h3>
+                                <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                <input type="text" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+                                <input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">
+                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+
+                                <input type="submit" value="Register Now" >
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <p>By logging in you agree to our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Register -->
