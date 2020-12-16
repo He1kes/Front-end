@@ -54,6 +54,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div id="app">
+
+	<!--top-->
+	<div class="top">
+
+	</div>
+	<!--top-->
+
 	<!---banner--->
 	<div class="banner-section">
 		<div class="container">
@@ -140,6 +147,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div>
+
+	<!--footer-->
+	<div class="footer">
+
+	</div>
+	<!--footer-->
 </body>
 <script type="text/javascript">
 	//创建地图实例
@@ -157,25 +170,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	map.setCurrentCity("上海"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
 	//添加滑轮缩放
 	map.enableScrollWheelZoom(true);
-</script>
-<script type="text/javascript">
-	new Vue({
-		el:'#app',
-		data:{
-			comment:[],
-			tips:[],
-			show:0
-		},
-		methods:{
-			Commit_comment:function () {
-				var that = this;
-				if (that.component == "" || that.component == null){
-					that.tips = "评论不能为空";
-					that.show = 1;
-					return;
-				}
-			}
-		}
-	})
 </script>
 </html>
