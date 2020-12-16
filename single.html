@@ -7,6 +7,14 @@
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!---css--->
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--地图所需要的组件-->
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<style type="text/css">
+		html{height: 100%}
+		body{height: 100%;margin: 0px;padding: 0px}
+		#container{height:100%}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=QqQm1BAIylVGcExlKZHSrS3TGQXSEUD5"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -58,59 +66,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="blog-grids">
 					<div class="col-md-9 blog-grid">
 						<div class="blog">
-							<h3>News From Nintendo</h3>
-							<p>January 05, 2016 / <a href="#">John Doe</a> / <a href="#">Uncategorized</a> / <a href="#">0 Comments</a></p>
+							<h3>小池塘 别墅</h3>
+							<p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">未分类</a> / <a href="#">2 评论</a></p>
 							<a href="single.html"><img src="images/b1.jpg" class="img-responsive" alt=""/></a>
-							<p>Tart donut gummi bears unerdwear.com tootsie roll chocolate bar gummi bears bear claw. Apple pie tart chocolate cake jelly beans. Unerdwear.com dragée sweet muffin icing macaroon. Jelly marzipan toffee cotton candy sweet roll. Jelly croissant jujubes carrot cake marshmallow donut biscuit wafer marzipan. Muffin pastry jujubes donut pastry chocolate bar cake candy chocolate. Dessert donut</p>
+							<span style="color: red;font-size: 33px">￥<span>7777</span><button type="button" class="btn btn-info" style="margin-left: 660px">预定</button></span>
+						</div>
+
+						<div class="tags">
+							<h4>可提供服务</h4>
+							<ul>
+								<li><input type="checkbox" id="inlineCheckbox1" value="option1" checked="checked"> 停车场(部分收费)</li>
+								<li><input type="checkbox" id="inlineCheckbox2" value="option2" checked="checked"> 24小时热水</li>
+								<li><input type="checkbox" id="inlineCheckbox3" value="option3" checked="checked"> 免费wifi</li>
+								<li><input type="checkbox" id="inlineCheckbox4" value="option4" checked="checked"> 洗衣服务</li>
+								<li><input type="checkbox" id="inlineCheckbox5" value="option5" checked="checked"> 叫醒服务</li>
+								<li><input type="checkbox" id="inlineCheckbox6" value="option6" checked="checked"> 接送服务</li>
+								<li><input type="checkbox" id="inlineCheckbox7" value="option7" checked="checked"> 餐饮服务</li>
+<!--								<li><a href="blog.html">Lorem</a></li>-->
+<!--								<li><a href="blog.html">consectetur</a></li>-->
+<!--								<li><a href="blog.html">dolore</a></li>-->
+<!--								<li><a href="blog.html">aliqua</a></li>-->
+<!--								<li><a href="blog.html">sit amet</a></li>-->
+<!--								<li><a href="blog.html">ipsum</a></li>-->
+<!--								<li><a href="blog.html">Lorem</a></li>-->
+<!--								<li><a href="blog.html">consectetur</a></li>-->
+<!--								<li><a href="blog.html">dolore</a></li>-->
+<!--								<li><a href="blog.html">aliqua</a></li>-->
+<!--								<li><a href="blog.html">sit amet</a></li>-->
+<!--								<li><a href="blog.html">ipsum</a></li>-->
+							</ul>
 						</div>
 
 						<!---RESPONSES--->
 						<div class="coment-form">
 							<div class="container">
-								<h3>Leave your comment</h3>
+								<h3>住客评价</h3>
+								<table class="table table-condensed table-bordered" style="max-width: 72%;">
+									<tr>
+										<td>用户名</td>
+										<td>评论内容</td>
+										<td>时间</td>
+									</tr>
+									<tr>
+										<th>如雪仙王</th>
+										<th>环境不错</th>
+										<th>2020-11-12</th>
+									</tr>
+									<tr>
+										<th>水多仙王</th>
+										<th>池塘水很多</th>
+										<th>2020-11-13</th>
+									</tr>
+								</table>
 								<form>
-									<input type="text" value="Name " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-									<input type="email" value="Email (will not be published)*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email (will not be published)*';}" required="">
-									<input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">
-									<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>
-									<input type="submit" value="Submit Comment" >
-									<label><input type="checkbox" value="Sign me up for the newsletter">Sign me up for the newsletter</label>
+									<input type="text" value="comment_content " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'comment_content';}" required="">
+<!--									<input type="email" value="Email (will not be published)*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email (will not be published)*';}" required="">-->
+<!--									<input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">-->
+<!--									<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>-->
+									<input type="submit" value="Comment" >
+<!--									<label><input type="checkbox" value="Sign me up for the newsletter">Sign me up for the newsletter</label>-->
 								</form>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-3 blog-grid1">
 						<div class="categ">
-						<h3>Categories</h3>
-						<ul>
-						<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-							<li><a href="#">Duis aute irure dolor in culpa</a></li>
-							<li><a href="#">Sunt in culpa qui illum</a></li>
-							<li><a href="#">vel illum qui dolorem man</a></li>
-							<li><a href="#">The wise man therefore culpa</a></li>
-							<li><a href="#">Sunt in culpa qui officia</a></li>
-							<li><a href="#">Lorem ipsum dolor sit qui</a></li>
-							<li><a href="#">Duis aute irure dolor</a></li>
-							<li><a href="#">Sunt in culpa qui officia</a></li>
-
-						</ul>
-						</div>
-						<div class="tags">
-							<h4>Tags</h4>
-							<ul>
-								<li><a href="blog.html">Lorem</a></li>
-								<li><a href="blog.html">consectetur</a></li>
-								<li><a href="blog.html">dolore</a></li>
-								<li><a href="blog.html">aliqua</a></li>
-								<li><a href="blog.html">sit amet</a></li>
-								<li><a href="blog.html">ipsum</a></li>
-								<li><a href="blog.html">Lorem</a></li>
-								<li><a href="blog.html">consectetur</a></li>
-								<li><a href="blog.html">dolore</a></li>
-								<li><a href="blog.html">aliqua</a></li>
-								<li><a href="blog.html">sit amet</a></li>
-								<li><a href="blog.html">ipsum</a></li>
-							</ul>
+						<h3>具体位置</h3>
+							<div id="container" style="width: 333px;height: 333px"></div>
 						</div>
 						<div class="feature">
 							<h4>Featured Properties</h4>
@@ -124,16 +146,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h5>Villa in Hialeah, Dade</h5>
 									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 							</div>
-							<div class="feature-top top2">
-							<img src="images/s5.jpg" class="img-responsive" alt="/">
-									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
-							<div class="feature-top top2">
-							<img src="images/s6.jpg" class="img-responsive" alt="/">
-									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
+<!--							<div class="feature-top top2">-->
+<!--							<img src="images/s5.jpg" class="img-responsive" alt="/">-->
+<!--									<h5>Villa in Hialeah, Dade</h5>-->
+<!--									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>-->
+<!--							</div>-->
+<!--							<div class="feature-top top2">-->
+<!--							<img src="images/s6.jpg" class="img-responsive" alt="/">-->
+<!--									<h5>60 Merrick Way, Miami</h5>-->
+<!--									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>-->
+<!--							</div>-->
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -141,6 +163,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-
 </body>
+<script type="text/javascript">
+	//创建地图实例
+	var map = new BMap.Map("container");
+	//创建点坐标
+	// var point = new BMap.Point(122.12348,37.50212);
+	//初始化地图，设置中心点坐标和地图级别
+	// map.centerAndZoom(point, 15);
+	//添加控件
+	map.centerAndZoom(new BMap.Point(121.48053886017651,31.235929042252014), 15);
+	map.addControl(new BMap.NavigationControl());
+	map.addControl(new BMap.ScaleControl());
+	map.addControl(new BMap.OverviewMapControl());
+	map.addControl(new BMap.MapTypeControl());
+	map.setCurrentCity("上海"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+	//添加滑轮缩放
+	map.enableScrollWheelZoom(true);
+</script>
 </html>
