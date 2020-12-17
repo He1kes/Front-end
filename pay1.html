@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>确认订单</title>
+    <!---css--->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!---js--->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/vue.js"></script>
+    <!---js--->
+    <!---fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <!---fonts-->
+    <!-- FlexSlider -->
+    <script src="js/jquery.flexslider.js"></script>
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+    <!-- //FlexSlider-->
+
+    <!--common-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.top').load('./common_pages/top.html');
+            $('.footer').load('./common_pages/footer.html');
+        })
+    </script>
+    <!--common-->
+</head>
+<body>
+<div id="app">
+
+    <!--top-->
+    <div class="top">
+
+    </div>
+    <!--top-->
+
+    <!---banner--->
+    <div class="banner">
+        <div class="container">
+            <button type="button" class="btn btn-default btn-circle" style="border-radius: 15px;background-color: yellow">1</button>
+            确认订单信息<span class="glyphicon glyphicon-chevron-right"></span>
+            <button type="button" class="btn btn-default btn-circle" style="border-radius: 15px;">2</button>
+            验证支付密码<span class="glyphicon glyphicon-chevron-right"></span>
+            <button type="button" class="btn btn-default btn-circle" style="border-radius: 15px;">3</button>
+            等待卖家确认<span class="glyphicon glyphicon-chevron-right"></span>
+            <button type="button" class="btn btn-default btn-circle" style="border-radius: 15px;">4</button>
+            完成预订并出行
+<!--            <span class="glyphicon glyphicon-chevron-right"></span>-->
+        </div>
+    </div>
+    <!---banner--->
+    <div class="content">
+        <div class="blog-section">
+            <div class="container">
+                <div class="blog-grids">
+                    <div class="col-md-9 blog-grid">
+                        <div class="blog">
+                            <h3>小池塘 别墅</h3>
+                            <p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">短租·直营</a> / <img style="width: 55px;height: 55px;float: right" src="images/b1.jpg" class="img-responsive" alt=""/></p>
+                        </div>
+                        <div class="tags">
+                            <h4>租住信息</h4>
+                            <table class="table table-striped">
+                                <tr><th><span>租住时间<i style="color: red">*</i></span></th>&nbsp;&nbsp;&nbsp;<td><input type="date"> 至 <input type="date"></td></tr>
+                                <tr><th><span>入住人</span><i style="color: red;">*</i></th>&nbsp;&nbsp;&nbsp;<td><input type="text" placeholder="请如实填写"></td></tr>
+                                <tr><th><span>手机号</span><i style="color: red;">*</i></th>&nbsp;&nbsp;&nbsp;<th><input type="text" placeholder="用于接收确认短信"></th></tr>
+                            </table>
+                        </div>
+
+                        <!---RESPONSES--->
+                        <div class="coment-form">
+                            <div class="container">
+                                <h3>优惠方案</h3>
+                                <table class="table table-striped" style="max-width: 71%">
+                                <tr><th><span>仙王优惠</span></th>&nbsp;&nbsp;&nbsp;
+                                    <td><select name="" id="">
+                                        <option value="1" selected="selected">立减￥3381</option>
+                                        <option value="2">有钱任性,不适用优惠</option>
+                                    </select></td></tr>
+                                <tr>
+                                    <th>积分赠送</th>&nbsp;&nbsp;&nbsp;
+                                    <td>赠送50积分</td>
+                                </tr>
+                                <tr>
+                                    <th>积分抵现</th>
+                                    <td><select name="" id="">
+                                        <option value="1" selected="selected">不使用积分抵现</option>
+                                        <option value="2">2000积分抵现￥20</option>
+                                        <option value="3">5000积分抵现￥50</option>
+                                        <option value="4">10000积分抵现￥100</option>
+                                    </select></td>
+                                </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" style="float: right">发起支付(仅支持支付宝)</button>
+                    </div>
+                    <div class="col-md-3 blog-grid1">
+                        <div class="categ">
+                            <h3>优惠策略</h3>
+                            <table class="table table-hover">
+                                <tr>
+                                    <td>房费</td>
+                                    <td>仙王赐福-立省￥3381</td>
+                                    <td>总计</td>
+                                </tr>
+                                <tr>
+                                    <td>￥7777</td>
+                                    <td>-￥3381</td>
+                                    <td>￥4396</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+
+</div>
+<!--footer-->
+</body>
+</html>

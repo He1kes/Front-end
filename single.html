@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h3>小池塘 别墅</h3>
 							<p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">未分类</a> / <a href="#">2 评论</a></p>
 							<a href="single.html"><img src="images/b1.jpg" class="img-responsive" alt=""/></a>
-							<span style="color: red;font-size: 33px">￥<span>7777</span><button type="button" class="btn btn-info" style="margin-left: 660px">预定</button></span>
+							<span style="color: red;font-size: 33px">￥<span>7777</span><button type="button" class="btn btn-info" style="margin-left: 660px" @click="booking()">预定</button></span>
 						</div>
 
 						<div class="tags">
@@ -170,5 +170,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	map.setCurrentCity("上海"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
 	//添加滑轮缩放
 	map.enableScrollWheelZoom(true);
+</script>
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+		data:{
+			comment:[],
+			tips:[],
+			show:0
+		},
+		methods:{
+			Commit_comment:function () {
+				var that = this;
+				if (that.comment == '' || that.comment == null){
+					that.show = 1;
+					that.tips = '评论不能为空';
+					return
+				}
+			},
+			booking:function () {
+				location.href='pay1.html';
+			}
+		}
+	})
 </script>
 </html>
