@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Home</title>
+    <!---css--->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!---js--->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!---js--->
+    <!---fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <!---fonts-->
+    <script src="js/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto:true,
+                nav: false,
+                speed: 500,
+                namespace: "callbacks",
+                pager:true,
+            });
+        });
+    </script>
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <script src="js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                items : 1,
+                lazyLoad : true,
+                autoPlay : true,
+                navigation : false,
+                navigationText :  false,
+                pagination : true,
+            });
+        });
+    </script>
+
+    <!--common-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.footer').load('./common_pages/footer.html');
+        })
+    </script>
+    <!--common-->
+
+</head>
+<body>
+
+    <!---header--->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-top">
+                <div class="social-icon">
+                    <a href="#"><i class="icon"></i></a>
+                    <a href="#"><i class="icon1"></i></a>
+                    <a href="#"><i class="icon2"></i></a>
+                    <a href="#"><i class="icon3"></i></a>
+                    <a href="#"><i class="icon4"></i></a>
+                </div>
+                <div class="email">
+                    <ul>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
+                        <li><i class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 2em"></i> <a href="manageself.html">个人管理</a></li>
+                        <li><img class="img-circle" src="images/a.jpg" style="width: 45px;height: 45px">&nbsp;欢迎,<span>9527</span></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!---header--->
+
+    <div style="overflow: hidden">
+        <!--菜单栏-->
+        <div id="ordinaryMenu" style="float: left;overflow: hidden">
+            <ul class="list-group" style="float: left;margin: 10px 0px;">
+                <li class="list-group-item" >
+                    个人信息
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">修改个人信息</a></li>
+                        <li class="list-group-item"><a href="">修改密码</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的订单
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">全部订单</a></li>
+                        <li class="list-group-item"><a href="">待支付</a></li>
+                        <li class="list-group-item"><a href="">待使用</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的消息
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">查看消息</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的心愿单
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">查看心愿单</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的评论
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">查看评论</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!--内容框-->
+        <div id="ordinaryContent" style="float: left;overflow: hidden;margin:10px;">
+            <!--订单-->
+            <div v-show="!detailFlag">
+                <!--订单列表-->
+                <div>
+                    <!--单个订单-->
+                    <div style="border: #888f90 1px solid;margin: 20px">
+                        <!--状态行-->
+                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
+                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>已完成</strong></p>
+                        </div>
+                        <!--订单内容-->
+                        <div style="overflow:hidden;width: auto;">
+                            <!--图片-->
+                            <div style="float: left;margin: 10px">
+                                <img src="images/b.jpg" style="width: 80px;height: 60px">
+                            </div>
+                            <!--内容-->
+                            <div style="float: left;margin: 10px">
+                                <p style="margin: 10px">悠然青旅</p>
+                                <p style="margin: 10px">
+                                    <span>入住时间：2020-10-09</span>&nbsp;&nbsp;
+                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;
+                                    <span>共一晚</span>
+                                </p>
+                            </div>
+                            <!--按钮-->
+                            <div style="float: left;margin: 10px;padding-top: 15px">
+                                <button type="button" class="btn btn-success" @click="detailShow">订单详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--分页-->
+                <div align="center">
+                    <div style="margin-top: 10px">
+                        <strong>共 条记录，当前 / 页</strong>
+                    </div>
+                    <nav>
+                        <ul class="pagination pagination-lg">
+                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--展示订单详情-->
+            <div style="width: 600px" v-show="detailFlag">
+                <div style="border: #888f90 1px solid;margin: 20px">
+                    <!--关闭按钮-->
+                    <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
+                        <p style="float: right;margin-right:10px;line-height: 30px;color: darkred">
+                            <span class="glyphicon glyphicon-remove" @click="detailClose"></span>
+                        </p>
+                    </div>
+                    <div>订单详细内容</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="footer">
+
+    </div>
+    <!--footer-->
+
+    <!--引入js-->
+    <script src="js/vue.js"></script>
+    <script src="js/jsW/manageOrder01.js"></script>
+</body>
+</html>>
