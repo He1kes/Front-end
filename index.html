@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--common-->
 	<script type="text/javascript">
 		$(document).ready(function () {
-			$('.top').load('./common_pages/top.html', function () {
+			$('.top').load('./common_pages/top2.html?' + Math.floor((Math.random()*9 + 1) * 100000), function () {
 				$('#home').addClass('active');
 			});
 			$('.footer').load('./common_pages/footer.html');
