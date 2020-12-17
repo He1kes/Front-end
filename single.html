@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---js--->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
 <!---js--->
 <!---fonts-->
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -52,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--common-->
 </head>
 <body>
+<div id="app">
 
 	<!--top-->
 	<div class="top">
@@ -88,18 +90,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><input type="checkbox" id="inlineCheckbox5" value="option5" checked="checked"> 叫醒服务</li>
 								<li><input type="checkbox" id="inlineCheckbox6" value="option6" checked="checked"> 接送服务</li>
 								<li><input type="checkbox" id="inlineCheckbox7" value="option7" checked="checked"> 餐饮服务</li>
-<!--								<li><a href="blog.html">Lorem</a></li>-->
-<!--								<li><a href="blog.html">consectetur</a></li>-->
-<!--								<li><a href="blog.html">dolore</a></li>-->
-<!--								<li><a href="blog.html">aliqua</a></li>-->
-<!--								<li><a href="blog.html">sit amet</a></li>-->
-<!--								<li><a href="blog.html">ipsum</a></li>-->
-<!--								<li><a href="blog.html">Lorem</a></li>-->
-<!--								<li><a href="blog.html">consectetur</a></li>-->
-<!--								<li><a href="blog.html">dolore</a></li>-->
-<!--								<li><a href="blog.html">aliqua</a></li>-->
-<!--								<li><a href="blog.html">sit amet</a></li>-->
-<!--								<li><a href="blog.html">ipsum</a></li>-->
 							</ul>
 						</div>
 
@@ -125,43 +115,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</tr>
 								</table>
 								<form>
-									<input type="text" value="comment_content " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'comment_content';}" required="">
-<!--									<input type="email" value="Email (will not be published)*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email (will not be published)*';}" required="">-->
-<!--									<input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">-->
-<!--									<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>-->
-									<input type="submit" value="Comment" >
-<!--									<label><input type="checkbox" value="Sign me up for the newsletter">Sign me up for the newsletter</label>-->
+									<span><input type="text" v-model="comment" value=""  placeholder="评论内容" required=""><span v-text="tips" v-if="show == 1" style="color: red"></span></span>
+									<input type="button" value="Comment" @click="Commit_comment()">
+									<!--									<label><input type="checkbox" value="Sign me up for the newsletter">Sign me up for the newsletter</label>-->
 								</form>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-3 blog-grid1">
 						<div class="categ">
-						<h3>具体位置</h3>
+							<h3>具体位置</h3>
 							<div id="container" style="width: 333px;height: 333px"></div>
 						</div>
 						<div class="feature">
 							<h4>Featured Properties</h4>
 							<div class="feature-top">
-							<img src="images/s4.jpg" class="img-responsive" alt="/">
-									<h5>60 Merrick Way, Miami</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+								<img src="images/s4.jpg" class="img-responsive" alt="/">
+								<h5>60 Merrick Way, Miami</h5>
+								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 							</div>
 							<div class="feature-top top2">
-							<img src="images/s3.jpg" class="img-responsive" alt="/">
-									<h5>Villa in Hialeah, Dade</h5>
-									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+								<img src="images/s3.jpg" class="img-responsive" alt="/">
+								<h5>Villa in Hialeah, Dade</h5>
+								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
 							</div>
-<!--							<div class="feature-top top2">-->
-<!--							<img src="images/s5.jpg" class="img-responsive" alt="/">-->
-<!--									<h5>Villa in Hialeah, Dade</h5>-->
-<!--									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>-->
-<!--							</div>-->
-<!--							<div class="feature-top top2">-->
-<!--							<img src="images/s6.jpg" class="img-responsive" alt="/">-->
-<!--									<h5>60 Merrick Way, Miami</h5>-->
-<!--									<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>-->
-<!--							</div>-->
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -169,6 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
+</div>
 
 	<!--footer-->
 	<div class="footer">
