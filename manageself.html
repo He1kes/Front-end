@@ -82,10 +82,166 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!---header--->
 
-    <div>
-        <p>
+    <!--<div class="col-sm-12" style="padding: 0px; background: white;">
+        <div class="col-sm-2" style="padding: 0px;">
+            <div class="panel-group" role="tablist">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="false" aria-controls="collapseListGroup1">
+                                Collapsible list group
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                        <ul class="list-group">
+                            <li class="list-group-item">Bootply</li>
+                            <li class="list-group-item">One itmus ac facilin</li>
+                            <li class="list-group-item">Second eros</li>
+                        </ul>
+                        <div class="panel-footer">Footer</div>
+                    </div>
+
+                    <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup2" aria-expanded="false" aria-controls="collapseListGroup2">
+                                Collapsible list group
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseListGroup2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                        <ul class="list-group">
+                            <li class="list-group-item">Bootply</li>
+                            <li class="list-group-item">One itmus ac facilin</li>
+                            <li class="list-group-item">Second eros</li>
+                        </ul>
+                        <div class="panel-footer">Footer</div>
+                    </div>
+
+                    <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup3" aria-expanded="false" aria-controls="collapseListGroup3">
+                                Collapsible list group
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseListGroup3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
+                        <ul class="list-group">
+                            <li class="list-group-item">Bootply</li>
+                            <li class="list-group-item">One itmus ac facilin</li>
+                            <li class="list-group-item">Second eros</li>
+                        </ul>
+                        <div class="panel-footer">Footer</div>
+                    </div>
+
+                    <div class="panel-heading" role="tab" id="collapseListGroupHeading4">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseListGroup4" aria-expanded="false" aria-controls="collapseListGroup4">
+                                Collapsible list group
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseListGroup4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading4">
+                        <ul class="list-group">
+                            <li class="list-group-item">Bootply</li>
+                            <li class="list-group-item">One itmus ac facilin</li>
+                            <li class="list-group-item">Second eros</li>
+                        </ul>
+                        <div class="panel-footer">Footer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-10">
             这里写内容
-        </p>
+        </div>
+    </div>-->
+
+    <div style="overflow: hidden">
+        <!--菜单栏-->
+        <div id="ordinaryMenu" style="float: left;overflow: hidden">
+            <ul class="list-group" style="float: left;margin: 10px 0px;">
+                <li class="list-group-item" >
+                    个人信息
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="manageself.html">修改个人信息</a></li>
+                        <li class="list-group-item"><a href="updatepassword.html">修改密码</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的订单
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">全部订单</a></li>
+                        <li class="list-group-item"><a href="">待支付</a></li>
+                        <li class="list-group-item"><a href="">待使用</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的消息
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">查看消息</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的心愿单
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">查看心愿单</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的评论
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="">查看评论</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!--内容框-->
+        <div id="ordinaryContent" style="float: right;overflow: hidden;margin:10px;width: 88%;padding-top: 50px">
+            <div class="col-sm-9 col-sm-offset-1">
+                <form class="form-horizontal">
+                    <script>
+                        $(function () {
+                            $('#photo').hide()
+                        })
+                    </script>
+                    <div class="col-sm-10 col-sm-offset-5" style="padding-left: 0px">
+                        <img id="image" class="img-circle" src="images/a.jpg" style="width: 65px;height: 65px">
+                        <input type="button" class="btn btn-default" id="upload" value="更换头像">
+                        <input type="file" name="photo" id="photo" type="hidden">
+                    </div>
+                    <br><br><br><br>
+                    <div class="form-group">
+                        <label for="account" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="account" value="张三" placeholder="请输入用户名">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">电子邮箱</label>
+                        <div class="col-sm-10">
+                            <input type="email" value="923112087@qq.com" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="account" class="col-sm-2 control-label">更换绑定手机</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="phone" value="13211112222" placeholder="请输入手机号">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">确认修改</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!--footer-->
