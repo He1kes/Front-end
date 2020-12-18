@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="email">
                     <ul>
                         <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
-                        <li><i class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 2em"></i> <a href="manageself.html">个人管理</a></li>
+                        <li><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i> <a href="index.html">返回首页</a></li>
                         <li><img class="img-circle" src="images/a.jpg" style="width: 45px;height: 45px">&nbsp;欢迎,<span>9527</span></li>
                     </ul>
                 </div>
@@ -96,9 +96,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="list-group-item">
                     我的订单
                     <ul class="list-group" style="margin-bottom: 18px;">
-                        <li class="list-group-item"><a href="manageOrder01.html">全部订单</a></li>
-                        <li class="list-group-item"><a href="manageOrder02.html">待支付</a></li>
-                        <li class="list-group-item"><a href="manageOrder03.html">待使用</a></li>
+                        <li class="list-group-item"><a href="">全部订单</a></li>
+                        <li class="list-group-item"><a href="">待支付</a></li>
+                        <li class="list-group-item"><a href="">待使用</a></li>
                     </ul>
                 </li>
                 <li class="list-group-item">
@@ -110,101 +110,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="list-group-item">
                     我的心愿单
                     <ul class="list-group" style="margin-bottom: 18px;">
-                        <li class="list-group-item"><a href="manageCollection.html">查看心愿单</a></li>
+                        <li class="list-group-item"><a href="">查看心愿单</a></li>
                     </ul>
                 </li>
                 <li class="list-group-item">
                     我的评论
                     <ul class="list-group" style="margin-bottom: 18px;">
-                        <li class="list-group-item"><a href="manageComment.html">查看评论</a></li>
+                        <li class="list-group-item"><a href="">查看评论</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 
         <!--内容框-->
-        <div id="ordinaryContent" style="float: left;overflow: hidden;margin:10px;">
-            <!--订单-->
-            <div v-show="!detailFlag">
-                <!--订单列表-->
-                <div>
-                    <!--单个订单-->
-                    <div style="border: #888f90 1px solid;margin: 20px">
-                        <!--状态行-->
-                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
-                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>已完成</strong></p>
+        <div id="ordinaryContent" style="float: left;overflow: hidden;margin:10px;padding:10px;">
+
+            <div style="width: 600px" v-show="!detailFlag">
+                <!--聊天列表-->
+                <div style="padding:10px;border: #888f90 1px solid;">
+                    <div style="overflow:hidden;border: #888f90 1px solid;border-radius: 5px" @click="detailShow">
+                        <!-- 头像 -->
+                        <div style="float: left;margin: 10px">
+                            <img src="images/a1.jpg" style="width: 50px;height: 50px;border-radius: 25px">
                         </div>
-                        <!--订单内容-->
-                        <div style="overflow:hidden;width: auto;">
-                            <!--图片-->
-                            <div style="float: left;margin: 10px">
-                                <img src="images/b.jpg" style="width: 80px;height: 60px">
-                            </div>
-                            <!--内容-->
-                            <div style="float: left;margin: 10px">
-                                <p style="margin: 10px">悠然青旅</p>
-                                <p style="margin: 10px">
-                                    <span>入住时间：2020-10-09</span>&nbsp;&nbsp;
-                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;
-                                    <span>共一晚</span>
-                                </p>
-                            </div>
-                            <!--按钮-->
-                            <div style="float: left;margin: 10px;padding-top: 15px">
-                                <button type="button" class="btn btn-success" @click="detailShow">订单详情</button>
-                            </div>
+                        <div style="float: left;margin: 10px">
+                            <p style="margin: 10px">
+                                <strong>悠然青旅</strong>&nbsp;&nbsp;
+                                <span class="badge badge-danger">2</span>
+                            </p>
                         </div>
                     </div>
-                    <div style="border: #888f90 1px solid;margin: 20px">
-                        <!--状态行-->
-                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
-                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>待支付</strong></p>
+
+                    <div style="overflow:hidden;border: #888f90 1px solid;border-radius: 5px" @click="detailShow">
+                        <!-- 头像 -->
+                        <div style="float: left;margin: 10px">
+                            <img src="images/a1.jpg" style="width: 50px;height: 50px;border-radius: 25px">
                         </div>
-                        <!--订单内容-->
-                        <div style="overflow:hidden;width: auto;">
-                            <!--图片-->
-                            <div style="float: left;margin: 10px">
-                                <img src="images/b.jpg" style="width: 80px;height: 60px">
-                            </div>
-                            <!--内容-->
-                            <div style="float: left;margin: 10px">
-                                <p style="margin: 10px">悠然青旅</p>
-                                <p style="margin: 10px">
-                                    <span>入住时间：2020-10-09</span>&nbsp;&nbsp;
-                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;
-                                    <span>共一晚</span>
-                                </p>
-                            </div>
-                            <!--按钮-->
-                            <div style="float: left;margin: 10px;padding-top: 15px">
-                                <button type="button" class="btn btn-success" @click="detailShow">订单详情</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="border: #888f90 1px solid;margin: 20px">
-                        <!--状态行-->
-                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
-                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>待使用</strong></p>
-                        </div>
-                        <!--订单内容-->
-                        <div style="overflow:hidden;width: auto;">
-                            <!--图片-->
-                            <div style="float: left;margin: 10px">
-                                <img src="images/b.jpg" style="width: 80px;height: 60px">
-                            </div>
-                            <!--内容-->
-                            <div style="float: left;margin: 10px">
-                                <p style="margin: 10px">悠然青旅</p>
-                                <p style="margin: 10px">
-                                    <span>入住时间：2020-10-09</span>&nbsp;&nbsp;
-                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;
-                                    <span>共一晚</span>
-                                </p>
-                            </div>
-                            <!--按钮-->
-                            <div style="float: left;margin: 10px;padding-top: 15px">
-                                <button type="button" class="btn btn-success" @click="detailShow">订单详情</button>
-                            </div>
+                        <div style="float: left;margin: 10px">
+                            <p style="margin: 10px">
+                                <strong>悠然青旅</strong>&nbsp;&nbsp;
+                                <span class="badge badge-danger">2</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -226,16 +172,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </nav>
                 </div>
             </div>
-            <!--展示订单详情-->
+
+            <!--聊天详情-->
             <div style="width: 600px" v-show="detailFlag">
                 <div style="border: #888f90 1px solid;margin: 20px">
                     <!--关闭按钮-->
-                    <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
+                    <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;">
                         <p style="float: right;margin-right:10px;line-height: 30px;color: darkred">
                             <span class="glyphicon glyphicon-remove" @click="detailClose"></span>
                         </p>
                     </div>
-                    <div>订单详细内容</div>
+                    <div>
+                        <!-- 历史框 -->
+                        <div style="width: 100%; height: 390px;overflow: auto;padding: 10px;">
+
+                            <div>
+                                <div>
+                                    <img src="images/a1.jpg" style="width: 50px;height: 50px;border-radius: 25px">&nbsp;&nbsp;
+                                    <span style="color: lightskyblue">悠然青旅房东</span>&nbsp;&nbsp;
+                                    <span style="color: lightskyblue">2020-10-08 13:10:43</span>
+                                </div>
+                                <div>
+                                    <p style="margin-top: 10px;background-color: lightskyblue;border-radius: 5px;width: 400px;">
+                                        岳阳新闻网,由岳阳市广播电视台主办,岳阳市官方新闻门户网站,以主流广电媒体的专业视角,提供丰富、权威、时效性的资讯,是岳阳市最具影响力的新闻门户网站。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div style="overflow: hidden">
+                                <div style="float: right">
+                                    <span style="color: burlywood">2020-10-08 15:19:03</span>&nbsp;&nbsp;
+                                    <span style="color: burlywood">小白</span>&nbsp;&nbsp;
+                                    <img src="images/a2.jpg" style="width: 50px;height: 50px;border-radius: 25px">
+                                </div>
+                                <div style="float: right">
+                                    <p style="margin-top: 10px;background-color: burlywood;border-radius: 5px;width: 400px;">
+                                        岳阳新闻网,由岳阳市广播电视台主办。
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- 分割线 -->
+                        <hr style="height: 0.5px;background-color:#888f90">
+                        <!-- 发送框 -->
+                        <div style="padding: 10px">
+                            <div>
+                                <textarea style="width: 540px; height: 120px;"></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-primary">发送</button>&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,6 +238,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--引入js-->
     <script src="js/vue.js"></script>
-    <script src="js/jsW/manageOrder01.js"></script>
+    <script src="js/jsW/manageChat01.js"></script>
 </body>
 </html>>
