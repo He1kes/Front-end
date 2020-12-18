@@ -96,9 +96,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="list-group-item">
                     我的订单
                     <ul class="list-group" style="margin-bottom: 18px;">
-                        <li class="list-group-item"><a href="">全部订单</a></li>
-                        <li class="list-group-item"><a href="">待支付</a></li>
-                        <li class="list-group-item"><a href="">待使用</a></li>
+                        <li class="list-group-item"><a href="manageOrder01.html">全部订单</a></li>
+                        <li class="list-group-item"><a href="manageOrder02.html">待支付</a></li>
+                        <li class="list-group-item"><a href="manageOrder03.html">待使用</a></li>
                     </ul>
                 </li>
                 <li class="list-group-item">
@@ -133,6 +133,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!--状态行-->
                         <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
                             <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>已完成</strong></p>
+                        </div>
+                        <!--订单内容-->
+                        <div style="overflow:hidden;width: auto;">
+                            <!--图片-->
+                            <div style="float: left;margin: 10px">
+                                <img src="images/b.jpg" style="width: 80px;height: 60px">
+                            </div>
+                            <!--内容-->
+                            <div style="float: left;margin: 10px">
+                                <p style="margin: 10px">悠然青旅</p>
+                                <p style="margin: 10px">
+                                    <span>入住时间：2020-10-09</span>&nbsp;&nbsp;
+                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;
+                                    <span>共一晚</span>
+                                </p>
+                            </div>
+                            <!--按钮-->
+                            <div style="float: left;margin: 10px;padding-top: 15px">
+                                <button type="button" class="btn btn-success" @click="detailShow">订单详情</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: #888f90 1px solid;margin: 20px">
+                        <!--状态行-->
+                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
+                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>待支付</strong></p>
+                        </div>
+                        <!--订单内容-->
+                        <div style="overflow:hidden;width: auto;">
+                            <!--图片-->
+                            <div style="float: left;margin: 10px">
+                                <img src="images/b.jpg" style="width: 80px;height: 60px">
+                            </div>
+                            <!--内容-->
+                            <div style="float: left;margin: 10px">
+                                <p style="margin: 10px">悠然青旅</p>
+                                <p style="margin: 10px">
+                                    <span>入住时间：2020-10-09</span>&nbsp;&nbsp;
+                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;
+                                    <span>共一晚</span>
+                                </p>
+                            </div>
+                            <!--按钮-->
+                            <div style="float: left;margin: 10px;padding-top: 15px">
+                                <button type="button" class="btn btn-success" @click="detailShow">订单详情</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: #888f90 1px solid;margin: 20px">
+                        <!--状态行-->
+                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
+                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>待使用</strong></p>
                         </div>
                         <!--订单内容-->
                         <div style="overflow:hidden;width: auto;">
