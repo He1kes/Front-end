@@ -123,9 +123,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </li>
         </ul>
     </div>
-
+    <div class="col-xs-1 col-md-2"></div>
     <!--内容框-->
-    <div id="ordinaryContent" style="float: left;overflow: hidden;margin:10px;">
+    <div id="ordinaryContent" class="col-xs-10 col-md-6">
         <!--订单-->
         <div v-show="orderListFlag">
             <!--订单列表-->
@@ -134,16 +134,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
                     <!--状态行-->
                     <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #333D47;">
-                        <p style="float: right;margin-right:10px;line-height: 30px;color: #FAA43D"><strong>待使用</strong></p>
+                        <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>待使用</strong></p>
                     </div>
                     <!--订单内容-->
                     <div style="overflow:hidden;width: auto;">
                         <!--图片-->
-                        <div style="float: left;margin: 20px 20px">
+                        <div style="float: left;margin: 20px 30px">
                             <img src="images/b.jpg" style="width: 100px;height: 75px">
                         </div>
                         <!--内容-->
-                        <div style="float: left;margin: 10px">
+                        <div style="float: left;margin: 10px 20px">
                             <p style="margin: 10px">
                                 悠然青旅
                             </p>
@@ -151,12 +151,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>总价：</span><span>40元</span>
                             </p>
                             <p style="margin: 10px">
-                                <span>入住时间：</span><span>2020-10-09</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span>离开时间：</span><span>2020-10-10</span>
+                                <span>入住时间：</span><span>2020-10-09</span>
+                                <span style="margin-left: 40px">离开时间：</span><span>2020-10-10</span>
                             </p>
                         </div>
                         <!--按钮-->
-                        <div style="float: left;margin: 10px;padding-top: 35px">
+                        <div style="float: left;margin: 10px 20px;padding-top: 30px">
                             <button type="button" class="btn btn-cheng" @click="detailShow(3)">订单详情</button>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
 
         <!--展示订单详情-->
-        <div style="width: 700px" v-show="detailFlag">
+        <div style="width: auto" v-show="detailFlag">
             <div id="orderDetailCss" style="border: #FAA43D 1px solid;margin: 20px;">
                 <!--关闭按钮-->
                 <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
@@ -245,7 +245,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <!--取消订单-->
         <div v-show="cancelDivFlag">
-            <div style="border: #FAA43D 1px solid;margin: 20px;width: 700px">
+            <div style="border: #FAA43D 1px solid;margin: 20px;width: auto">
                 <!--关闭按钮-->
                 <div style="margin: 0px;height: 30px;background-color: #f7f7f7">
                     <p style="overflow: hidden;line-height: 30px;">
@@ -300,7 +300,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-cheng">确认</button>
+                <button type="button" class="btn btn-cheng" data-dismiss="modal">确认</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
