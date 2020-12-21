@@ -160,13 +160,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div style="overflow: hidden">
     <!--菜单栏-->
-    <!--菜单栏-->
     <div id="ordinaryMenu" style="float: left;overflow: hidden">
         <ul class="list-group" style="float: left;margin: 10px 0px;">
             <li class="list-group-item" >
                 个人信息
                 <ul class="list-group" style="margin-bottom: 18px;">
-                    <li class="list-group-item"><a href="manageself.html">修改个人信息</a></li>
+                    <li class="list-group-item active"><a href="manageself.html">修改个人信息</a></li>
                     <li class="list-group-item"><a href="updatepassword.html">修改密码</a></li>
                     <li class="list-group-item"><a href="mycoupon.html">我的优惠券</a></li>
                 </ul>
@@ -201,36 +200,157 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
     <!--内容框-->
-    <div id="ordinaryContent" style="float: right;overflow: hidden;margin:10px;width: 88%;padding-top: 50px">
+    <div id="ordinaryContent" style="float: right;overflow: hidden;margin:10px;width: 88%;padding-top: 30px">
         <div class="col-sm-9 col-sm-offset-1">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="password" class="col-sm-2 control-label">旧密码</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password"  placeholder="请输入旧密码">
-                    </div>
+            <div class="col-sm-12" style="margin-bottom: 5px; padding-left: 5px">
+                <div class="col-sm-1" style="padding: 0px; width: 70px">
+                    <button class="btn btn-warning" type="button">查询</button>
                 </div>
+                <div class="col-sm-2" style="padding: 0px">
+                    <select class="form-control" style="width: 90px">
+                        <option>全部</option>
+                        <option>已使用</option>
+                        <option>未使用</option>
+                    </select>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="color: #333; font-size: 1.2em">
+                        <th style="color: #333">编号</th>
+                        <th style="color: #333">内容</th>
+                        <th style="color: #333">数量</th>
+                        <th style="color: #333">有效期</th>
+                        <th style="color: #333">状态</th>
+                    </tr>
+                </thead>
 
-                <div class="form-group">
-                    <label for="newPassword" class="col-sm-2 control-label">新密码</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="newPassword"  placeholder="请输入新密码">
-                    </div>
-                </div>
+                <tbody>
+                    <tr>
+                        <td>31412413</td>
+                        <td><div style="background: #efcfcf; height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 325px; color: #333">
+                            <div class="col-sm-9" style="height: 110px;">
+                                <div align="center" style="margin-top: 10px; width: 75px">
+                                    <span style="font-family: STHupo; color: #822d2d">平台满减券</span>
+                                </div>
+                                <div style="margin-top: 10px">
+                        <span style="font-family: STXinwei; font-size: 1.3em">
+                            该满减券可用于全平台
+                        </span>
+                                </div>
+                                <div style="margin-top: 10px">
+                        <span style="font-family: STXinwei">
+                            2020.12.21-2020.12.22
+                        </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3" style="background: #F7819F; height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 5px; border-bottom-right-radius: 5px">
+                                <div align="center" style="margin-top: 10px">
+                                    <span style="font-size: 1.8em; font-family: 'Bookman Old Style'">&#165 50</span>
+                                </div>
+                                <div align="center" style="margin-top: 8px">
+                                    <span style="font-size: 1em; font-family: STXinwei">满100可用</span>
+                                </div>
+                                <div align="center" style="margin-top: 8px">
+                                    <a class="btn btn-sm btn-primary" style="background-color: honeydew; border: honeydew; color: #3A3B3C; padding: 0px 10px; font-family: 幼圆">立即使用</a>
+                                </div>
+                            </div>
+                        </div></td>
+                        <td>2</td>
+                        <td>20天</td>
+                        <td>未使用</td>
+                    </tr>
 
-                <div class="form-group">
-                    <label for="surePassword" class="col-sm-2 control-label">旧密码</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="surePassword"  placeholder="请确认密码">
-                    </div>
-                </div>
+                    <tr>
+                        <td>31412434</td>
+                        <td><div style="background: #F5A9F2; height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 325px; color: #333">
+                            <div class="col-sm-9" style="height: 110px;">
+                                <div align="center" style="margin-top: 10px; width: 75px">
+                                    <span style="font-family: STHupo; color: #822d2d">平台折扣券</span>
+                                </div>
+                                <div style="margin-top: 10px">
+                        <span style="font-family: STXinwei; font-size: 1.3em">
+                            该折扣券可用于全平台
+                        </span>
+                                </div>
+                                <div style="margin-top: 10px">
+                        <span style="font-family: STXinwei">
+                            2020.12.21-2020.12.22
+                        </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3" style="background: #FF00FF; height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 5px; border-bottom-right-radius: 5px">
+                                <div align="center" style="margin-top: 10px">
+                                    <span style="font-size: 1.8em; font-family: 'Bookman Old Style'">7.5 折</span>
+                                </div>
+                                <div align="center" style="margin-top: 8px">
+                                    <span style="font-size: 1em; font-family: STXinwei">满120可用</span>
+                                </div>
+                                <div align="center" style="margin-top: 8px">
+                                    <a class="btn btn-sm btn-primary" style="background-color: honeydew; border: honeydew; color: #3A3B3C; padding: 0px 10px; font-family: 幼圆">立即使用</a>
+                                </div>
+                            </div>
+                        </div></td>
+                        <td>2</td>
+                        <td>20天</td>
+                        <td>未使用</td>
+                    </tr>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">确认修改</button>
-                    </div>
+                    <tr>
+                        <td>31412415</td>
+                        <td><div style="background: #F5F6CE; height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 325px; color: #333">
+                            <div class="col-sm-9" style="height: 110px;">
+                                <div align="center" style="margin-top: 10px; width: 75px">
+                                    <span style="font-family: STHupo; color: #822d2d">平台立减券</span>
+                                </div>
+                                <div style="margin-top: 10px">
+                        <span style="font-family: STXinwei; font-size: 1.3em">
+                            该立减券可用于全平台
+                        </span>
+                                </div>
+                                <div style="margin-top: 10px">
+                        <span style="font-family: STXinwei">
+                            2020.12.21-2020.12.22
+                        </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3" style="background: #F3F781; height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 5px; border-bottom-right-radius: 5px">
+                                <div align="center" style="margin-top: 10px">
+                                    <span style="font-size: 1.8em; font-family: 'Bookman Old Style'">&#165 30</span>
+                                </div>
+                                <div align="center" style="margin-top: 8px">
+                                    <span style="font-size: 1em; font-family: STXinwei">任意金额可用</span>
+                                </div>
+                                <div align="center" style="margin-top: 8px">
+                                    <a class="btn btn-sm btn-primary" style="background-color: honeydew; border: honeydew; color: #3A3B3C; padding: 0px 10px; font-family: 幼圆">立即使用</a>
+                                </div>
+                            </div>
+                        </div></td>
+                        <td>2</td>
+                        <td>20天</td>
+                        <td>未使用</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!--分页-->
+            <div align="center">
+                <div style="margin-top: 10px">
+                    <strong>共10条记录，当前1/10页</strong>
                 </div>
-            </form>
+                <nav>
+                    <ul class="pagination pagination-lg">
+                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
