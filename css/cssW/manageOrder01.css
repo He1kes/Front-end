@@ -11,8 +11,11 @@
     color: #FAA43D;
     background-color: #333D47;
 }
-.list-group-item-active {
+.btn-cheng:hover,
+.btn-cheng:focus,
+.btn-cheng:active{
     color: #FAA43D;
-    background-color: #333D47;
+    background-color: #fff;
+    border-color: #FAA43D;
 }
 
