@@ -122,36 +122,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
             </ul>
         </div>
-
+        <div class="col-xs-1 col-md-2"></div>
         <!--内容框-->
-        <div id="ordinaryContent" style="float: left;overflow: hidden;margin:10px;padding:10px;">
+        <div id="ordinaryContent" class="col-xs-10 col-md-6" style="float: left;overflow: hidden;margin:10px;padding:10px;">
             <!--收藏-->
             <div v-show="!show">
                 <!--收藏列表-->
                 <div>
                     <!--单个收藏-->
-                    <div style="border: #888f90 1px solid;margin: 20px">
-<!--                        &lt;!&ndash;状态行&ndash;&gt;-->
-<!--                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">-->
-<!--                            <p style="float: right;margin-right:10px;line-height: 30px;color: #333D47"><strong>待支付</strong></p>-->
-<!--                        </div>-->
+                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
                         <!--收藏内容-->
                         <div style="overflow:hidden;width: auto;">
                             <!--图片-->
-                            <div style="float: left;margin: 10px">
-                                <img src="images/b.jpg" style="width: 80px;height: 60px">
+                            <div style="float: left;margin: 20px 30px">
+                                <img src="images/b.jpg" style="width: 100px;height: 75px">
                             </div>
                             <!--内容-->
-                            <div style="float: left;margin: 10px">
+                            <div style="float: left;margin: 10px 20px">
                                 <p style="margin: 10px">悠然青旅</p>
                                 <p style="margin: 10px">
                                     <span>价格: ￥777</span>&nbsp;&nbsp;
-<!--                                    <span>离开时间：2020-10-10</span>&nbsp;&nbsp;-->
-<!--                                    <span>共一晚</span>-->
                                 </p>
                             </div>
                             <!--按钮-->
-                            <div style="float: left;margin: 10px;padding-top: 15px">
+                            <div style="float: left;margin: 10px 20px 55px 250px;padding-top: 30px">
                                 <button type="button" class="btn btn-success" @click="booking">预定</button>
                                 <button type="button" class="btn btn-danger" @click="deleting">移除</button>
                             </div>
