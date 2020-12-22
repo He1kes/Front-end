@@ -4,9 +4,9 @@ var app = new Vue({
         option:"test1",
     },
     methods:{
-        //test
+        //模态框点击确认跳转回订单列表页面
         goOrderList:function () {
-            this.option = "test2"
+            window.location.href="manageOrder01.html";
         }
     }
 })
