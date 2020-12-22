@@ -342,10 +342,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!--footer-->
 
-    <!--引入js-->
-    <script src="js/vue.js"></script>
-    <script src="js/jsW/manageOrder01.js"></script>
-
     <!--模态框-->
     <div id="cancelSuccessModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -361,10 +357,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-cheng">确认</button>
+                    <button type="button" class="btn btn-cheng" @hidden.bs.modal="goOrderList">确认</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    <!--引入js-->
+    <script src="js/vue.js"></script>
+    <script src="js/jsW/manageOrder01.js"></script>
+    <script src="js/jsW/manageOrder01m.js"></script>
+
 </body>
 </html>>
