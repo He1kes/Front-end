@@ -1,0 +1,18 @@
+#orderListsCss p span:nth-of-type(odd){
+    color: #adadad;
+}
+#orderDetailCss p span:nth-of-type(odd){
+    color: #adadad;
+}
+#orderDetailCss>div>p{
+    margin-top:10px;
+}
+.btn-cheng{
+    color: #FAA43D;
+    background-color: #333D47;
+}
+.list-group-item-active {
+    color: #FAA43D;
+    background-color: #333D47;
+}
+
