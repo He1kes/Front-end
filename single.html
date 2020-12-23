@@ -52,6 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		})
 	</script>
 	<!--common-->
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="css/heikes/swiper-bundle.css">
 </head>
 <body>
 <div id="app">
@@ -77,7 +79,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="blog">
 							<h3>小池塘 别墅</h3>
 							<p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">未分类</a> / <a href="#">2 评论</a></p>
-							<a href="single.html"><img src="images/b1.jpg" class="img-responsive" alt=""/></a>
+							<!-- Swiper	-->
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<img src="images/b1.jpg" alt="">
+									</div>
+									<div class="swiper-slide">
+										<img src="images/b2.jpg" alt="">
+									</div>
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination"></div>
+								<!-- Add Navigation -->
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
 							<span style="color: red;font-size: 33px">￥<span>7777</span><button type="button" class="btn btn-info" style="margin-left: 660px" @click="booking()">预定</button></span>
 						</div>
 
@@ -196,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--	map.enableScrollWheelZoom(true);-->
 <!--</script>-->
 <script>
-<!--	带点的-->
+// <!--	带点的-->
 	var map = new BMapGL.Map('container');
 	map.centerAndZoom(new BMapGL.Point(121.48053886017651,31.235929042252014), 15);
 	map.enableScrollWheelZoom(true);
@@ -204,5 +221,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	var marker = new BMapGL.Marker(new BMapGL.Point(121.48053886017651,31.235929042252014));
 	// 在地图上添加点标记
 	map.addOverlay(marker);
+</script>
+<!-- Swiper JS -->
+<script src="js/heikes/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		zoom: true,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+			// renderBullet: function (index, className) {
+			// 	return '<span class="' + className + '">' + (index + 1) + '</span>';
+			// }
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		autoplay:true,
+	});
 </script>
 </html>
