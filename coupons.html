@@ -1,0 +1,1758 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>coupons</title>
+    <!---css--->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!---css--->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!---js--->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!---js--->
+    <!---fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <!---fonts-->
+    <!-- pop-up -->
+    <link rel="stylesheet" href="css/swipebox.css">
+    <script src="js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            $(".swipebox").swipebox();
+        });
+    </script>
+
+    <!-- pop-up -->
+
+    <!--common-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.top').load('./common_pages/top.html', function () {
+                $('#pages').addClass('active');
+            });
+            $('.footer').load('./common_pages/footer.html');
+        })
+    </script>
+    <!--common-->
+
+    <style>
+        .couponNav {
+            float: left;
+            list-style-type: none;
+            font-size: 2em;
+            font-weight: 800;
+        }
+        .couponActive {
+            background: #bca9f5;
+            padding: 4px;
+            color: white;
+            font-weight: bold;
+        }
+        .couponNav > a:hover {
+            text-decoration-line: none;
+            color: #7e6bff;
+        }
+
+        .couponNav > a:focus {
+            text-decoration-line: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!--top-->
+<div class="top">
+
+</div>
+<!--top-->
+
+<!---banner--->
+<div class="banner-section">
+    <div class="container">
+        <h2 style="color: #efc6d4">领券中心</h2>
+    </div>
+</div>
+<!---banner--->
+<div class="content">
+    <br>
+    <div id="couponContent" class="clearfix">
+
+       <div class="col-sm-10 col-sm-offset-1">
+           <ul>
+               <li class="couponNav"><a href="javascript:void(0);" :class="couponActive1" @click="couponDivShow(1)">优选好券</a><span style="font-weight: 100">&nbsp;|&nbsp;</span></li>
+               <li class="couponNav"><a href="javascript:void(0);" :class="couponActive2" @click="couponDivShow(2)">满减</a><span style="font-weight: 100">&nbsp;|&nbsp;</span></li>
+               <li class="couponNav"><a href="javascript:void(0);" :class="couponActive3" @click="couponDivShow(3)">折扣</a><span style="font-weight: 100">&nbsp;|&nbsp;</span></li>
+               <li class="couponNav"><a href="javascript:void(0);" :class="couponActive4" @click="couponDivShow(4)">立减</a></li>
+           </ul>
+       </div>
+        <br>
+        <div  class="col-sm-12" style="width: 100%; height: 5px; background: #ff5f5f; margin-top: 6px"></div>
+        <!--优选好券-->
+        <div class="col-sm-10 col-sm-offset-1" v-show="couponDiv1">
+            <br>
+            <span align="center">
+                <h3 style="font-weight: bold">
+                    <i class="glyphicon glyphicon-align-right" style="color: #e0e0e0"></i>
+                    <span style="color: #a958a9">优选好券</span>
+                    <i class="glyphicon glyphicon-align-left" style="color: #e0e0e0"></i>
+                </h3>
+            </span>
+
+            <br>
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #BCA9F5">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #BCA9F5; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #BCA9F5">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--优选好券-->
+        <!--满减-->
+        <div class="col-sm-10 col-sm-offset-1" v-show="couponDiv2">
+            <br>
+            <span align="center">
+                <h3 style="font-weight: bold">
+                    <i class="glyphicon glyphicon-align-right" style="color: #e0e0e0"></i>
+                    <span style="color: #a958a9">满减好券</span>
+                    <i class="glyphicon glyphicon-align-left" style="color: #e0e0e0"></i>
+                </h3>
+            </span>
+
+            <br>
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--满减-->
+        <!--折扣-->
+        <div class="col-sm-10 col-sm-offset-1" v-show="couponDiv3">
+            <br>
+            <span align="center">
+                <h3 style="font-weight: bold">
+                    <i class="glyphicon glyphicon-align-right" style="color: #e0e0e0"></i>
+                    <span style="color: #a958a9">折扣好券</span>
+                    <i class="glyphicon glyphicon-align-left" style="color: #e0e0e0"></i>
+                </h3>
+            </span>
+
+            <br>
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--折扣-->
+        <!--立减-->
+        <div class="col-sm-10 col-sm-offset-1" v-show="couponDiv4">
+            <br>
+            <span align="center">
+                <h3 style="font-weight: bold">
+                    <i class="glyphicon glyphicon-align-right" style="color: #e0e0e0"></i>
+                    <span style="color: #a958a9">立减好券</span>
+                    <i class="glyphicon glyphicon-align-left" style="color: #e0e0e0"></i>
+                </h3>
+            </span>
+
+            <br>
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="height: 110px; padding-left: 0px; padding-right: 0px; border-radius: 5px; width: 360px; color: #333">
+                        <div class="col-sm-10" style="border: 1px #cecbc6; border-style: solid; height: 110px; padding-right: 0px;">
+                            <div class="col-sm-5" style="padding: 0px; margin-top: 10px; padding-left: 6px">
+                                <img src="images/getcoupon.png" alt="加载失败" class="img-rounded" style="width: 90px; height: 90px">
+                            </div>
+                            <div class="col-sm-7" style="padding: 0px">
+                                <div style="margin-top: 10px">
+                                    <span style="font-size: 1.9em; font-family: 'Bookman Old Style'; color: #ff3e3e">&#165 50</span>
+                                    <span style="font-size: 0.8em; color: #ff3e3e; padding-left: 8px; background-color: #ffeded">满168元可用</span>
+                                </div>
+                                <div style="margin-top: 5px; font-family: 'Microsoft YaHei UI'; font-weight: 600; font-size: 0.7em">
+                                    <span>平台通用券</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div align="center" class="col-sm-2" style="height: 110px; padding-left: 0px; padding-right: 0px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; background-color: #ff3e3e">
+                                <div align="center" style="width: 30px; margin-top: 10px">
+                                    <span style="font-size: 1.1em; color: white">立即领取</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--立减-->
+
+        <div class="col-sm-12" align="center">
+            <div style="margin-top: 10px">
+                <strong>共56条记录，当前1/4页</strong>
+            </div>
+            <nav>
+                <ul class="pagination pagination-lg">
+                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+
+</div>
+<!--footer-->
+<script src="js/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#couponContent',
+        data:{
+            couponDiv1: true,
+            couponDiv2: false,
+            couponDiv3: false,
+            couponDiv4: false,
+            couponActive1: 'couponActive',
+            couponActive2: '',
+            couponActive3: '',
+            couponActive4: '',
+        },
+        methods:{
+            couponDivShow:function (num) {
+                if (num == 1) {
+                    this.couponActive1 = 'couponActive';
+                    this.couponActive2 = '';
+                    this.couponActive3 = '';
+                    this.couponActive4 = '';
+                    this.couponDiv1 = true;
+                    this.couponDiv2 = false;
+                    this.couponDiv3 = false;
+                    this.couponDiv4 = false;
+                } else if (num == 2) {
+                    this.couponActive1 = '';
+                    this.couponActive2 = 'couponActive';
+                    this.couponActive3 = '';
+                    this.couponActive4 = '';
+                    this.couponDiv1 = false;
+                    this.couponDiv2 = true;
+                    this.couponDiv3 = false;
+                    this.couponDiv4 = false;
+                } else if (num == 3) {
+                    this.couponActive1 = '';
+                    this.couponActive2 = '';
+                    this.couponActive3 = 'couponActive';
+                    this.couponActive4 = '';
+                    this.couponDiv1 = false;
+                    this.couponDiv2 = false;
+                    this.couponDiv3 = true;
+                    this.couponDiv4 = false;
+                } else if (num == 4) {
+                    this.couponActive1 = '';
+                    this.couponActive2 = '';
+                    this.couponActive3 = '';
+                    this.couponActive4 = 'couponActive';
+                    this.couponDiv1 = false;
+                    this.couponDiv2 = false;
+                    this.couponDiv3 = false;
+                    this.couponDiv4 = true;
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
