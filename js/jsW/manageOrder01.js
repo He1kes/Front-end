@@ -43,6 +43,10 @@ var app = new Vue({
         cancelClose:function () {
             this.cancelDivFlag = false;
             this.orderListFlag = true;
+        },
+        //订单详情页联系房东
+        contactFD:function () {
+            window.location.href = "manageChatTemp.html";
         }
     }
 })
