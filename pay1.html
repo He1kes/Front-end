@@ -43,6 +43,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         })
     </script>
     <!--common-->
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/heikes/swiper-bundle.css">
 </head>
 <body>
 <div id="app">
@@ -64,7 +66,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             等待卖家确认<span class="glyphicon glyphicon-chevron-right"></span>
             <button type="button" class="btn btn-default btn-circle" style="border-radius: 15px;">4</button>
             完成预订并出行
-<!--            <span class="glyphicon glyphicon-chevron-right"></span>-->
         </div>
     </div>
     <!---banner--->
@@ -75,7 +76,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-9 blog-grid">
                         <div class="blog">
                             <h3>小池塘 别墅</h3>
-                            <p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">短租·直营</a> / <img style="float: right" src="images/b1.jpg" class="img-responsive" alt=""/></p>
+                            <p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">短租·直营</a> / </p>
+                            <!-- Swiper	-->
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="images/b1.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/b2.jpg" alt="">
+                                    </div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                                <!-- Add Navigation -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
                             <div class="tags">
                                 <h4>可提供服务</h4>
                                 <ul>
@@ -92,9 +109,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="tags">
                             <h4>租住信息</h4>
                             <table class="table table-striped">
-                                <tr><th><span>租住时间<i style="color: red">*</i></span></th>&nbsp;&nbsp;&nbsp;<td><input type="date"> 至 <input type="date"></td></tr>
-                                <tr><th><span>入住人</span><i style="color: red;">*</i></th>&nbsp;&nbsp;&nbsp;<td><input type="text" placeholder="请如实填写"></td></tr>
-                                <tr><th><span>手机号</span><i style="color: red;">*</i></th>&nbsp;&nbsp;&nbsp;<th><input type="text" placeholder="用于接收确认短信"></th></tr>
+                                <tr>
+                                    <th><span>租住时间<i style="color: red">*</i></span></th>&nbsp;&nbsp;&nbsp;
+                                    <td><input type="date"> 至 <input type="date"></td>
+                                </tr>
+                                <tr v-for="a in i">
+                                    <th><span>入住人{{a}}</span><i style="color: red;">*</i></th>&nbsp;&nbsp;&nbsp;
+                                    <td>
+                                        <input  type="text" placeholder="请如实填写">
+                                        <span class="glyphicon glyphicon-plus" @click="travelers()"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span>手机号</span><i style="color: red;">*</i></th>&nbsp;&nbsp;&nbsp;
+                                    <th><input type="text" placeholder="用于接收确认短信"></th>
+                                </tr>
                             </table>
                         </div>
 
@@ -156,4 +185,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--footer-->
 </body>
+<!-- Swiper JS -->
+<script src="js/heikes/swiper-bundle.min.js"></script>
+<!--Vue-->
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            i:1
+        },
+        methods:{
+            travelers:function () {
+               var that = this;
+               that.i++;
+            }
+        }
+    })
+</script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        zoom: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            // renderBullet: function (index, className) {
+            // 	return '<span class="' + className + '">' + (index + 1) + '</span>';
+            // }
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay:true,
+    });
+</script>
 </html>
