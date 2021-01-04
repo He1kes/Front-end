@@ -8,12 +8,14 @@
         border: #d3d4ca;
     }
 </style>
+<script src="common_js/common.js"></script>
 <script>
     $(function () {
         $('#loginNav > ul > li > a').on('shown.bs.tab', function (e) {
             $(e.target).css({'background':'#9fe879', 'border':'#9fe879'});
             $(e.relatedTarget).css({'background':'#d3d4ca', 'border':'#d3d4ca'});
         });
+        $('#photo').hide();
     })
 </script>
 <!---header--->
@@ -182,18 +184,18 @@
                             <form>
                                 <h3>注册</h3>
                                 <div class="col-sm-10 col-sm-offset-5" style="padding-left: 0px">
-                                    <img id="image" class="img-circle" src="images/a.jpg" style="width: 65px;height: 65px">
-                                    <input type="button" class="btn btn-default" id="upload" value="上传头像">
-                                    <input type="file" name="photo" id="photo" type="hidden">
+                                    <img id="image" class="img-circle" v-bind:src="imgSrc" style="width: 65px;height: 65px">
+                                    <input type="button" @click="fileClick()" class="btn btn-default" id="upload" value="上传头像">
+                                    <input type="file" @change="file($event)" name="photo" id="photo">
                                 </div>
-                                <input type="text" placeholder="请输入昵称">
-                                <input type="text" placeholder="请输入用户名">
-                                <input type="text" placeholder="请输入手机号">
-                                <input type="password" placeholder="请输入密码">
-                                <input type="password" placeholder="请确认密码">
-                                <input type="text" placeholder="请输入验证码" style="width: 80%">
-                                <img src="images/a.jpg" style="width: 70px; height: 40px; margin-top: 21px; float: right">
-                                <input type="button" class="btn btn-info"  value="立即注册" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1; margin-top: 20px;">
+                                <input type="text" v-model="params.userAccount" placeholder="请输入昵称">
+                                <input type="text" v-model="params.userName" placeholder="请输入用户名">
+                                <input type="text" v-model="params.phone" placeholder="请输入手机号">
+                                <input type="password"  placeholder="请输入密码">
+                                <input type="password" v-model="params.password" placeholder="请确认密码">
+                                <input type="text" v-model="params.authCode" placeholder="请输入验证码" style="width: 80%">
+                                <a @click="getAuthCode()" href="javascript:void(0);"><img :src="authCodeSrc" style="width: 70px; height: 40px; margin-top: 21px; float: right"></a>
+                                <input type="button" v-on:click="submitForm()" class="btn btn-info"  value="立即注册" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1; margin-top: 20px;">
                             </form>
                         </div>
                         <div class="clearfix"></div>
@@ -205,3 +207,91 @@
     </div>
 </div>
 <!-- //Register -->
+<script src="js/vue.js"></script>
+<!--<script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>-->
+<script src="js/axios.js"></script>
+<script>
+    const register = new Vue({
+        el: '#registerModal',
+        data: {
+            params: {
+                photo: null,
+                userAccount: '',
+                userName: '',
+                phone: '',
+                password: '',
+                authCode: ''
+            },
+            imgSrc: 'images/a.jpg',
+            authCodeSrc: ''
+        },
+        methods: {
+            getAuthCode() {
+                let that = this;
+                axios({
+                    method: 'get',
+                    url: txqIP + '/user/getAuthCode',
+                    headers: {authCodeFlag: localStorage.getItem('authCodeFlag')}
+                })
+                    .then(function (result) {
+                        //先生成redis保存验证码的key，再生成验证码
+                        localStorage.setItem('authCodeFlag', result.data.data);
+                        that.authCodeSrc = txqIP + '/user/createCode?authCodeFlag=' + localStorage.getItem('authCodeFlag');
+                    });
+            },
+            fileClick() {
+                document.getElementById('photo').click();
+            },
+            getFile(event) {
+                this.params.photo = event.target.files[0];
+            },
+            photoChange(event) {
+                //图片回显
+                let file = event.target.files[0];
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                let that = this;
+                reader.onload = function (e) {
+                    let src = this.result.substring(this.result.indexOf(',') + 1);
+                    that.imgSrc = 'data:image/png;base64,' + src;
+                }
+            },
+            file(event) {
+                this.getFile(event);
+                this.photoChange(event);
+            },
+            submitForm() {
+                let formData = new FormData();
+                formData.append('photo', this.params.photo);
+                formData.append('userAccount', this.params.userAccount);
+                formData.append('userName', this.params.userName);
+                formData.append('phone', this.params.phone);
+                formData.append('password', this.params.password);
+                formData.append('authCode', this.params.authCode);
+
+                axios({
+                    method: 'post',
+                    url: txqIP + '/user/addNormalUser',
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'authCodeFlag': localStorage.getItem('authCodeFlag')
+                    }
+                })
+                    .then(
+                        data => {
+                            alert('上传成功！');
+                        }
+                    )
+                    .catch(
+                        error => {
+                            alert('上传失败！');
+                        }
+                    )
+            }
+        },
+        created: function () {
+            this.getAuthCode();
+        }
+    });
+</script>
