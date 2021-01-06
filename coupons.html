@@ -31,13 +31,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- pop-up -->
 
+    <script type="text/javascript" src="common_js/common.js"></script>
     <!--common-->
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.top').load('./common_pages/top.html', function () {
-                $('#pages').addClass('active');
-            });
-            $('.footer').load('./common_pages/footer.html');
+            function checkLogin() {
+                let flag = false;
+                $.ajaxSetup({
+                    headers: {token: localStorage.getItem('token')},
+                    async:false
+                });
+                $.post(txqIP + '/user/checkLogin', function (result) {
+                    flag = result.data;
+                });
+                return flag;
+            }
+            function loadCommonPages() {
+                $('.footer').load('./common_pages/footer.html');
+                let flag = checkLogin();
+                if (flag) {
+                    $('.top').load('./common_pages/top2.html?' + Math.floor((Math.random()*9 + 1) * 100000), function () {
+                        $('#pages').addClass('active');
+                    });
+                } else {
+                    $('.top').load('./common_pages/top.html?' + Math.floor((Math.random()*9 + 1) * 100000), function () {
+                        $('#pages').addClass('active');
+                    });
+                }
+            }
+            loadCommonPages();
         })
     </script>
     <!--common-->

@@ -125,36 +125,38 @@
                                         <br>
                                         <form>
                                             <div class="col-sm-10 col-sm-offset-5" style="padding-left: 0px">
-                                                <img id="" class="img-circle" src="images/a.jpg" style="width: 65px;height: 65px">
+                                                <img id="" class="img-circle" :src="imgSrc" style="width: 65px;height: 65px">
                                             </div>
-                                            <input id="account" name="account" type="text" placeholder="请输入您的账号">
-                                            <input id="password" name="password" type="password" placeholder="请输入您的密码">
+                                            <input v-model="userAccount" type="text" placeholder="请输入您的账号">
+                                            <input v-model="password" type="password" placeholder="请输入您的密码">
+                                            <span v-if="flag" style="color: red"><br><br>账号或密码输入错误</span>
                                             <h4><a href="#">忘记密码</a></h4>
                                             <div class="single-bottom">
                                                 <input type="checkbox"  id="brand" value="">
                                                 <label for="brand"><span></span>记住密码</label>
                                             </div>
-                                            <input type="button" class="btn btn-info"  value="立即登录" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1;">
+                                            <input type="button" v-on:click="doLogin()" class="btn btn-info"  value="立即登录" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1;">
                                         </form>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="loginByPhone">
                                         <form class="form-horizontal">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label" style="line-height: 3.9; padding-right: 6px;">手机号码</label>
+                                                <label for="phoneNumber" class="col-sm-2 control-label" style="line-height: 3.9; padding-right: 6px;">手机号码</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control-static" id="inputEmail3" placeholder="请输入手机号码" style="width: 70%">
-                                                    <button class="btn btn-primary" type="button" style="height: 44px">发送验证码</button>
+                                                    <input type="text" v-model="phoneNumber" class="form-control-static" id="phoneNumber" placeholder="请输入手机号码" style="width: 70%">
+                                                    <button class="btn btn-primary" @click="getPhoneCode()"  type="button" style="height: 44px">发送验证码</button>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputPassword3" class="col-sm-2 control-label" style="line-height: 3.9;">验证码</label>
+                                                <label for="phoneCode" class="col-sm-2 control-label" style="line-height: 3.9;">验证码</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
+                                                    <input type="text" v-model="phoneCode" class="form-control" id="phoneCode" placeholder="请输入验证码">
+                                                    <span v-if="codeFlag" style="color: red"><br><span v-text="phoneCodeMessage"></span></span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
-                                                    <button type="button" class="btn btn-default">登录</button>
+                                                    <button type="button" @click="doLoginByPhoneCode()" class="btn btn-default">登录</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -188,11 +190,11 @@
                                     <input type="button" @click="fileClick()" class="btn btn-default" id="upload" value="上传头像">
                                     <input type="file" @change="file($event)" name="photo" id="photo">
                                 </div>
-                                <input type="text" v-model="params.userAccount" placeholder="请输入昵称">
-                                <input type="text" v-model="params.userName" placeholder="请输入用户名">
+                                <input type="text" v-model="params.userName" placeholder="请输入昵称">
+                                <input type="text" v-model="params.userAccount" placeholder="请输入用户账号">
                                 <input type="text" v-model="params.phone" placeholder="请输入手机号">
-                                <input type="password"  placeholder="请输入密码">
-                                <input type="password" v-model="params.password" placeholder="请确认密码">
+                                <input type="password" v-model="params.password"  placeholder="请输入密码">
+                                <input type="password" v-model="params.confirmPassword" placeholder="请确认密码">
                                 <input type="text" v-model="params.authCode" placeholder="请输入验证码" style="width: 80%">
                                 <a @click="getAuthCode()" href="javascript:void(0);"><img :src="authCodeSrc" style="width: 70px; height: 40px; margin-top: 21px; float: right"></a>
                                 <input type="button" v-on:click="submitForm()" class="btn btn-info"  value="立即注册" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1; margin-top: 20px;">
@@ -220,9 +222,10 @@
                 userName: '',
                 phone: '',
                 password: '',
+                confirmPassword: '',
                 authCode: ''
             },
-            imgSrc: 'images/a.jpg',
+            imgSrc: 'images/4.png',
             authCodeSrc: ''
         },
         methods: {
@@ -260,13 +263,24 @@
                 this.getFile(event);
                 this.photoChange(event);
             },
+            clearForm() {
+                    this.params.photo = null;
+                    this.params.userAccount =  '';
+                    this.params.userName =  '';
+                    this.params.phone =  '';
+                    this.params.password =  '';
+                    this.params.confirmPassword = '';
+                    this.params.authCode =  '';
+                    this.imgSrc = 'images/a.jpg';
+            },
             submitForm() {
+                let that = this;
                 let formData = new FormData();
                 formData.append('photo', this.params.photo);
                 formData.append('userAccount', this.params.userAccount);
                 formData.append('userName', this.params.userName);
                 formData.append('phone', this.params.phone);
-                formData.append('password', this.params.password);
+                formData.append('password', this.params.confirmPassword);
                 formData.append('authCode', this.params.authCode);
 
                 axios({
@@ -280,18 +294,131 @@
                 })
                     .then(
                         data => {
-                            alert('上传成功！');
+                            alert('注册成功！');
+                            that.getAuthCode();
+                            that.clearForm();
                         }
                     )
                     .catch(
                         error => {
-                            alert('上传失败！');
+                            alert('注册失败！');
+                            that.getAuthCode();
                         }
                     )
             }
         },
         created: function () {
             this.getAuthCode();
+        }
+    });
+
+    const login = new Vue({
+        el: '#loginModal',
+        data: {
+            userAccount         : null,
+            password            : null,
+            imgSrc              : 'images/4.png',
+            flag                : false,
+            phoneNumber         : null,
+            phoneCode           : null,
+            codeFlag            : false,
+            phoneCodeMessage    : null
+        },
+        methods: {
+            //根据密码登录
+            doLogin() {
+                let userAccount = this.userAccount;
+                let password = this.password;
+
+                if (userAccount != '' && password != '' && userAccount != null && password != null) {
+                    let formData = new FormData();
+                    formData.append('userAccount', userAccount);
+                    formData.append('password', password);
+                    let that = this;
+                    axios.post(txqIP + "/user/doLogin", formData)
+                        .then(function (result) {
+                            //data[0]代表查询结果，data[1]代表返回的token值，1登录成功，0登录不成功
+                            if (result.data.data[0] == 1) {
+                                that.flag = false;
+                                localStorage.setItem('token',result.data.data[1]);
+                                that.clearForm();
+                                $('#loginModal').modal('hide');
+                            } else {
+                                that.flag = true;
+                            }
+                        });
+                }
+            },
+            //清空表单
+            clearForm() {
+               this.userAccount = null;
+               this.password = null;
+               this.imgSrc = 'images/4.png';
+               this.flag = false;
+               this.phoneCode = null;
+               this.phoneNumber = null;
+               this.codeFlag = false;
+               this.phoneCodeMessage = null
+            },
+            //获取手机验证码
+            getPhoneCode() {
+                let that = this;
+                let phoneNumber = that.phoneNumber;
+                if (phoneNumber != null && phoneNumber != '') {
+                    axios.get(txqIP + '/user/getPhoneCode', {params: {phoneNumber: phoneNumber}})
+                        .then(function (result) {
+                            if (result.data.data == -1) {
+                                that.phoneCodeMessage = result.data.message;
+                                that.codeFlag = true;
+                            } else {
+                                that.codeFlag = false;
+                            }
+                        })
+                }
+            },
+            //手机动态验证登录
+            doLoginByPhoneCode() {
+                let that = this;
+                let phoneNumber = that.phoneNumber;
+                let phoneCode = that.phoneCode;
+                if (phoneNumber != null && phoneNumber != '' && phoneCode != null && phoneCode != '') {
+                    let formData = new FormData();
+                    formData.append('phoneNumber', phoneNumber);
+                    formData.append('phoneCode', phoneCode);
+                    axios.post(txqIP + '/user/doLoginByPhoneCode', formData)
+                        .then(function (result) {
+                            //data[0]代表登录结果，1登录成功，0登录不成功，data[1]代表返回的token值
+                            if (result.data.data[0] == 1) {
+                                that.codeFlag = false;
+                                localStorage.setItem('token',result.data.data[1]);
+                                that.clearForm();
+                                $('#loginModal').modal('hide');
+                            } else {
+                                that.phoneCodeMessage = result.data.message;
+                                that.codeFlag = true;
+                            }
+                        })
+                }
+            }
+        },
+        watch: {
+            //监听用户名，返回用户头像
+            userAccount: function (newVal) {
+                let that = this;
+                if (newVal != null && newVal != '') {
+                    axios.get(txqIP+'/user/findUserImg', {params: {userAccount: newVal}})
+                        .then(function (result) {
+                            if (result.data.data == null) {
+                                that.imgSrc = 'images/4.png';
+                            } else {
+                                that.imgSrc = result.data.data;
+                            }
+                        })
+                        .catch(function (error) {
+                            that.imgSrc = 'images/4.png';
+                        });
+                }
+            }
         }
     });
 </script>
