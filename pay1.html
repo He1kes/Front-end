@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     headers: {token: localStorage.getItem('token')},
                     async:false
                 });
-                $.post(txqIP + '/user/checkLogin', function (result) {
+                $.post(txqIP + '/user/front/public/checkLogin', function (result) {
                     flag = result.data;
                 });
                 return flag;

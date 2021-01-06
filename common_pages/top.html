@@ -233,13 +233,13 @@
                 let that = this;
                 axios({
                     method: 'get',
-                    url: txqIP + '/user/getAuthCode',
+                    url: txqIP + '/user/front/public/getAuthCode',
                     headers: {authCodeFlag: localStorage.getItem('authCodeFlag')}
                 })
                     .then(function (result) {
                         //先生成redis保存验证码的key，再生成验证码
                         localStorage.setItem('authCodeFlag', result.data.data);
-                        that.authCodeSrc = txqIP + '/user/createCode?authCodeFlag=' + localStorage.getItem('authCodeFlag');
+                        that.authCodeSrc = txqIP + '/user/front/public/createCode?authCodeFlag=' + localStorage.getItem('authCodeFlag');
                     });
             },
             fileClick() {
@@ -285,7 +285,7 @@
 
                 axios({
                     method: 'post',
-                    url: txqIP + '/user/addNormalUser',
+                    url: txqIP + '/user/front/public/addNormalUser',
                     data: formData,
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -297,6 +297,7 @@
                             alert('注册成功！');
                             that.getAuthCode();
                             that.clearForm();
+                            $('#loginModal').modal('show');
                         }
                     )
                     .catch(
@@ -335,7 +336,7 @@
                     formData.append('userAccount', userAccount);
                     formData.append('password', password);
                     let that = this;
-                    axios.post(txqIP + "/user/doLogin", formData)
+                    axios.post(txqIP + "/user/front/public/doLogin", formData)
                         .then(function (result) {
                             //data[0]代表查询结果，data[1]代表返回的token值，1登录成功，0登录不成功
                             if (result.data.data[0] == 1) {
@@ -343,6 +344,7 @@
                                 localStorage.setItem('token',result.data.data[1]);
                                 that.clearForm();
                                 $('#loginModal').modal('hide');
+                                window.location.reload();
                             } else {
                                 that.flag = true;
                             }
@@ -365,7 +367,7 @@
                 let that = this;
                 let phoneNumber = that.phoneNumber;
                 if (phoneNumber != null && phoneNumber != '') {
-                    axios.get(txqIP + '/user/getPhoneCode', {params: {phoneNumber: phoneNumber}})
+                    axios.get(txqIP + '/user/front/public/getPhoneCode', {params: {phoneNumber: phoneNumber}})
                         .then(function (result) {
                             if (result.data.data == -1) {
                                 that.phoneCodeMessage = result.data.message;
@@ -385,7 +387,7 @@
                     let formData = new FormData();
                     formData.append('phoneNumber', phoneNumber);
                     formData.append('phoneCode', phoneCode);
-                    axios.post(txqIP + '/user/doLoginByPhoneCode', formData)
+                    axios.post(txqIP + '/user/front/public/doLoginByPhoneCode', formData)
                         .then(function (result) {
                             //data[0]代表登录结果，1登录成功，0登录不成功，data[1]代表返回的token值
                             if (result.data.data[0] == 1) {
@@ -393,6 +395,7 @@
                                 localStorage.setItem('token',result.data.data[1]);
                                 that.clearForm();
                                 $('#loginModal').modal('hide');
+                                window.location.reload();
                             } else {
                                 that.phoneCodeMessage = result.data.message;
                                 that.codeFlag = true;
@@ -404,9 +407,10 @@
         watch: {
             //监听用户名，返回用户头像
             userAccount: function (newVal) {
+                console.log(111);
                 let that = this;
                 if (newVal != null && newVal != '') {
-                    axios.get(txqIP+'/user/findUserImg', {params: {userAccount: newVal}})
+                    axios.get(txqIP+'/user/front/public/findUserImg', {params: {userAccount: newVal}})
                         .then(function (result) {
                             if (result.data.data == null) {
                                 that.imgSrc = 'images/4.png';
