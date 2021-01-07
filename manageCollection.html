@@ -47,6 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 
+    <script src="common_js/common.js"></script>
     <!--common-->
     <script type="text/javascript">
         $(document).ready(function () {
@@ -57,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/vue.js"></script>
 </head>
 <body>
-<div id="app">
+<div>
     <!---header--->
     <div class="header-section">
         <div class="container">
@@ -69,11 +70,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#"><i class="icon3"></i></a>
                     <a href="#"><i class="icon4"></i></a>
                 </div>
-                <div class="email">
+                <div id="loginOut" class="email">
                     <ul>
                         <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
-                        <li><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i> <a href="index.html">返回首页</a></li>
-                        <li><img class="img-circle" src="images/a.jpg" style="width: 45px;height: 45px">&nbsp;欢迎,<span>9527</span></li>
+                        <li><a @click="loginOut()" href="javascript:void(0);"><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i></a> <a href="index.html">返回首页</a></li>
+                        <li><img class="img-circle" :src="imgSrc" style="width: 45px;height: 45px">&nbsp;欢迎,<span v-text="userName"></span></li>
                     </ul>
                 </div>
                 <div class="clearfix"></div>
@@ -124,56 +125,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="col-xs-1 col-md-2"></div>
         <!--内容框-->
-        <div id="ordinaryContent" class="col-xs-10 col-md-6" style="float: left;overflow: hidden;margin:10px;padding:10px;">
-            <!--收藏-->
-            <div v-show="!show">
-                <!--收藏列表-->
-                <div>
-                    <!--单个收藏-->
-                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
-                        <!--收藏内容-->
-                        <div style="overflow:hidden;width: auto;">
-                            <!--图片-->
-                            <div style="float: left;margin: 20px 30px">
-                                <img src="images/b.jpg" style="width: 100px;height: 75px">
-                            </div>
-                            <!--内容-->
-                            <div style="float: left;margin: 10px 20px">
-                                <p style="margin: 10px">悠然青旅</p>
-                                <p style="margin: 10px">
-                                    <span>价格: ￥777</span>&nbsp;&nbsp;
-                                </p>
-                            </div>
-                            <!--按钮-->
-                            <div style="float: left;margin: 10px 20px 55px 250px;padding-top: 30px">
-                                <button type="button" class="btn btn-success" @click="booking">预定</button>
-                                <button type="button" class="btn btn-danger" @click="deleting">移除</button>
+        <div id="app">
+            <div id="ordinaryContent" class="col-xs-10 col-md-6" style="float: left;overflow: hidden;margin:10px;padding:10px;">
+                <!--收藏-->
+                <div v-show="!show">
+                    <!--收藏列表-->
+                    <div>
+                        <!--单个收藏-->
+                        <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
+                            <!--收藏内容-->
+                            <div style="overflow:hidden;width: auto;">
+                                <!--图片-->
+                                <div style="float: left;margin: 20px 30px">
+                                    <img src="images/b.jpg" style="width: 100px;height: 75px">
+                                </div>
+                                <!--内容-->
+                                <div style="float: left;margin: 10px 20px">
+                                    <p style="margin: 10px">悠然青旅</p>
+                                    <p style="margin: 10px">
+                                        <span>价格: ￥777</span>&nbsp;&nbsp;
+                                    </p>
+                                </div>
+                                <!--按钮-->
+                                <div style="float: left;margin: 10px 20px 55px 250px;padding-top: 30px">
+                                    <button type="button" class="btn btn-success" @click="booking">预定</button>
+                                    <button type="button" class="btn btn-danger" @click="deleting">移除</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--分页-->
-                <div align="center">
-                    <div style="margin-top: 10px">
-                        <strong>共 条记录，当前 / 页</strong>
+                    <!--分页-->
+                    <div align="center">
+                        <div style="margin-top: 10px">
+                            <strong>共 条记录，当前 / 页</strong>
+                        </div>
+                        <nav>
+                            <ul class="pagination pagination-lg">
+                                <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav>
-                        <ul class="pagination pagination-lg">
-                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
                 </div>
-            </div>
-            <div v-show="show">
-                <img src="images/th.jpg" alt="" width="555px" height="555px">
+                <div v-show="show">
+                    <img src="images/th.jpg" alt="" width="555px" height="555px">
+                </div>
             </div>
         </div>
+
     </div>
 
     <!--footer-->
@@ -200,4 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
     })
 </script>
+
+<script src="js/axios.js"></script>
+<script src="common_js/login.js"></script>
 </html>>

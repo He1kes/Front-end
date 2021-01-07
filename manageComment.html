@@ -47,6 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 
+    <script src="common_js/common.js"></script>
     <!--common-->
     <script type="text/javascript">
         $(document).ready(function () {
@@ -57,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="js/vue.js"></script>
 </head>
 <body>
-<div id="app">
+<div>
     <!---header--->
     <div class="header-section">
         <div class="container">
@@ -69,11 +70,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#"><i class="icon3"></i></a>
                     <a href="#"><i class="icon4"></i></a>
                 </div>
-                <div class="email">
+                <div id="loginOut" class="email">
                     <ul>
                         <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
-                        <li><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i> <a href="index.html">返回首页</a></li>
-                        <li><img class="img-circle" src="images/a.jpg" style="width: 45px;height: 45px">&nbsp;欢迎,<span>9527</span></li>
+                        <li><a @click="loginOut()" href="javascript:void(0);"><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i></a> <a href="index.html">返回首页</a></li>
+                        <li><img class="img-circle" :src="imgSrc" style="width: 45px;height: 45px">&nbsp;欢迎,<span v-text="userName"></span></li>
                     </ul>
                 </div>
                 <div class="clearfix"></div>
@@ -124,54 +125,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="col-xs-1 col-md-2"></div>
         <!--内容框-->
-        <div id="ordinaryContent" class="col-xs-10 col-md-6" style="float: left;overflow: hidden;margin:10px;padding:10px;">
-            <!--评论-->
-            <div v-show="!show1 || !show2">
-                <!--评论列表-->
-                <div>
-                    <table class="table table-striped" >
-                        <tr>
-                            <td>房源名称</td>
-                            <td>评论内容</td>
-                            <td>时间</td>
-                            <td>操作</td>
-                        </tr>
-                        <tr v-show="!show1">
-                            <th>小池塘别墅</th>
-                            <th>环境不错</th>
-                            <th>2020-11-12</th>
-                            <th><button type="button" class="btn btn-danger" @click="deleting1">删除</button></th>
-                        </tr>
-                        <tr v-show="!show2">
-                            <th>悠然青旅</th>
-                            <th>池塘水很多</th>
-                            <th>2020-11-13</th>
-                            <th><button type="button" class="btn btn-danger" @click="deleting2">删除</button></th>
-                        </tr>
-                    </table>
-                </div>
-                <!--分页-->
-                <div align="center">
-                    <div style="margin-top: 10px">
-                        <strong>共 条记录，当前 / 页</strong>
+        <div id="app">
+            <div id="ordinaryContent" class="col-xs-10 col-md-6" style="float: left;overflow: hidden;margin:10px;padding:10px;">
+                <!--评论-->
+                <div v-show="!show1 || !show2">
+                    <!--评论列表-->
+                    <div>
+                        <table class="table table-striped" >
+                            <tr>
+                                <td>房源名称</td>
+                                <td>评论内容</td>
+                                <td>时间</td>
+                                <td>操作</td>
+                            </tr>
+                            <tr v-show="!show1">
+                                <th>小池塘别墅</th>
+                                <th>环境不错</th>
+                                <th>2020-11-12</th>
+                                <th><button type="button" class="btn btn-danger" @click="deleting1">删除</button></th>
+                            </tr>
+                            <tr v-show="!show2">
+                                <th>悠然青旅</th>
+                                <th>池塘水很多</th>
+                                <th>2020-11-13</th>
+                                <th><button type="button" class="btn btn-danger" @click="deleting2">删除</button></th>
+                            </tr>
+                        </table>
                     </div>
-                    <nav>
-                        <ul class="pagination pagination-lg">
-                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
+                    <!--分页-->
+                    <div align="center">
+                        <div style="margin-top: 10px">
+                            <strong>共 条记录，当前 / 页</strong>
+                        </div>
+                        <nav>
+                            <ul class="pagination pagination-lg">
+                                <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-            <div v-show="show1 && show2">
-                <img src="images/th.jpg" alt="" width="555px" height="555px">
+                <div v-show="show1 && show2">
+                    <img src="images/th.jpg" alt="" width="555px" height="555px">
+                </div>
             </div>
         </div>
+
     </div>
 
     <!--footer-->
@@ -200,4 +204,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
     })
 </script>
+<script src="js/axios.js"></script>
+<script src="common_js/login.js"></script>
 </html>>

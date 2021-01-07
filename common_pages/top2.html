@@ -9,11 +9,11 @@
                 <a href="#"><i class="icon3"></i></a>
                 <a href="#"><i class="icon4"></i></a>
             </div>
-            <div class="email">
+            <div id="loginOut" class="email">
                 <ul>
                     <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
-                    <li><i class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 2em"></i> <a href="manageself.html">个人管理</a></li>
-                    <li><img class="img-circle" src="images/a.jpg" style="width: 45px;height: 45px">&nbsp;欢迎,<span>9527</span></li>
+                    <li><a @click="loginOut()" href="javascript:void(0);"><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i></a> <a href="manageself.html">个人管理</a></li>
+                    <li><img class="img-circle" :src="imgSrc" style="width: 45px;height: 45px">&nbsp;欢迎,<span v-text="userName"></span></li>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -72,7 +72,7 @@
                     <li id="contact"><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="phone">
-                    <span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>666-888-333-222</span>
+                    <span><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>&nbsp;&nbsp;0739-6351798</span>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -80,3 +80,51 @@
     </div>
 </div>
 <!---header--->
+
+<script src="js/vue.js"></script>
+<!--<script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>-->
+<script src="js/axios.js"></script>
+<script>
+    const loginOut = new Vue({
+        el: '#loginOut',
+        data: {
+            imgSrc: 'images/4.png',
+            userName: 9527
+        },
+        methods: {
+            loginOut() {
+                axios({
+                    methods: 'get',
+                    url: txqIP + '/user/front/private/loginOut',
+                    headers: {
+                        'token': localStorage.getItem('token')
+                    }
+                })
+                    .then(function (result) {
+                        if (result.data.flag == true) {
+                            window.location.href = 'index.html';
+                        } else {
+                            alert(result.data.message);
+                        }
+                    });
+            },
+            getUserMessage() {
+                let that = this;
+                axios({
+                    method: 'get',
+                    url: txqIP + '/user/front/private/getUserMessage',
+                    headers: {
+                        'token': localStorage.getItem('token')
+                    }
+                })
+                    .then(function (result) {
+                        that.imgSrc = result.data.data.userImage;
+                        that.userName = result.data.data.userName;
+                    });
+            }
+        },
+        created: function () {
+            this.getUserMessage();
+        }
+    });
+</script>
