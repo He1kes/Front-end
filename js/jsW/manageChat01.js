@@ -5,9 +5,13 @@ var app = new Vue({
         detailFlag:false,
         //--------
         //网关地址
-        chatIP:"http://localhost:5050/chat/",
+        tIP:txqIP,
+        chatIP:"/chat/front/private/",
+        //当前用户token
+        nowToken:localStorage.getItem("token"),
         //当前用户id
         userId:2,
+        userIdTest:2,
         //分页
         pageNo:1,
         pageSize:6,
@@ -19,7 +23,8 @@ var app = new Vue({
         noViewCountList:[]
     },
     mounted:function(){
-        this.getIds(1);
+        this.getUidByToken();
+        //this.getIds(1);
     },
     methods:{
         //展示订单详情
@@ -43,7 +48,7 @@ var app = new Vue({
             if(pageNo > that.pages){
                 pageNo = that.pages;
             }
-            axios.get(that.chatIP+"getOthersList?pageNo="+pageNo+"&pageSize="+that.pageSize+"&selfId="+that.userId).then(
+            axios.get(that.tIP+that.chatIP+"getOthersList?pageNo="+pageNo+"&pageSize="+that.pageSize+"&selfId="+that.userId).then(
                 function (value) {
                     console.log(value.data.flag);
                     //console.log(value.data.data.list);
@@ -62,13 +67,28 @@ var app = new Vue({
         //未读消息条数
         getNoViewCounts:function (otherId) {
             var that = this;
-            axios.get(that.chatIP+"noViewCounts?otherId="+otherId+"&selfId="+that.userId).then(
+            axios.get(that.tIP+that.chatIP+"noViewCounts?otherId="+otherId+"&selfId="+that.userId).then(
                 function (value) {
                     //console.log(value.data.flag);
                     console.log(value.data.data);
                     that.noViewCountList.push(value.data.data);
                 }
             )
+        },
+        //通过token拿userId
+        getUidByToken:function(){
+            var that = this;
+            axios.get(that.tIP+that.chatIP+"getUserIdByToken", {headers: {'token': that.nowToken}}).then(
+                function (value) {
+                    //console.log(value.data.flag);
+                    console.log("getUidByToken:"+value.data.data);
+                    that.userId = value.data.data;
+                }
+            )
+        },
+        //获取用户头像、名称
+        getUserData:function (userIdc) {
+            var that = this;
         }
     }
 })
