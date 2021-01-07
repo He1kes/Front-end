@@ -143,8 +143,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
 
-                    <div style="overflow:hidden;border: #888f90 1px solid;border-radius: 5px" @click="detailShow">
-                        <!-- 头像 -->
+                    <!--<div style="overflow:hidden;border: #888f90 1px solid;border-radius: 5px" @click="detailShow">
+                        &lt;!&ndash; 头像 &ndash;&gt;
                         <div style="float: left;margin: 10px">
                             <img src="images/a1.jpg" style="width: 50px;height: 50px;border-radius: 25px">
                         </div>
@@ -154,22 +154,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span class="badge badge-danger">2</span>
                             </p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!--分页-->
                 <div align="center">
                     <div style="margin-top: 10px">
-                        <strong>共 条记录，当前 / 页</strong>
+                        <strong>共{{dateTotal}}条记录，当前{{pageNo}}/{{pages}}页</strong>
                     </div>
                     <nav>
                         <ul class="pagination pagination-lg">
-                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                            <li><a href="#" aria-label="Previous"><span aria-hidden="true" @click="getIds(pageNo-1)">«</span></a></li>
+                            <li :class="{active:navi==pageNo}" v-for="navi in navigatePageNums" >
+                                <a href="#" v-text="navi" @click="getIds(navi)"></a>
+                            </li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true" @click="getIds(pageNo+1)">»</span></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -237,6 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--引入js-->
     <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
     <script src="js/jsW/manageChat01.js"></script>
 </body>
 </html>>
