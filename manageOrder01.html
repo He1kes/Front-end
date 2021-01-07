@@ -72,11 +72,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#"><i class="icon3"></i></a>
                     <a href="#"><i class="icon4"></i></a>
                 </div>
-                <div id="loginOut" class="email">
+                <div class="email">
                     <ul>
                         <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
-                        <li><a @click="loginOut()" href="javascript:void(0);"><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i></a> <a href="index.html">返回首页</a></li>
-                        <li><img class="img-circle" :src="imgSrc" style="width: 45px;height: 45px">&nbsp;欢迎,<span v-text="userName"></span></li>
+                        <li><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i> <a href="index.html">返回首页</a></li>
+                        <li><img class="img-circle" src="images/a.jpg" style="width: 45px;height: 45px">&nbsp;欢迎,<span>9527</span></li>
                     </ul>
                 </div>
                 <div class="clearfix"></div>
@@ -133,10 +133,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!--订单列表-->
                 <div id="orderListsCss">
                     <!--单个订单-->
-                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
+                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px" v-for="(order,index) in ordersList">
                         <!--状态行-->
                         <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #333D47;">
-                            <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>已完成</strong></p>
+                            <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>{{order.orderStatus}}</strong></p>
                         </div>
                         <!--订单内容-->
                         <div style="overflow:hidden;width: auto;">
@@ -150,31 +150,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     悠然青旅
                                 </p>
                                 <p style="margin: 10px">
-                                    <span>总价：</span><span>40元</span>
+                                    <span>总价：</span><span>{{order.orderTotal}}元</span>
                                 </p>
                                 <p style="margin: 10px">
-                                    <span>入住时间：</span><span>2020-10-09</span>
-                                    <span style="margin-left: 40px">离开时间：</span><span>2020-10-10</span>
+                                    <span>入住时间：</span><span>{{order.startDate}}</span>
+                                    <span style="margin-left: 40px">离开时间：</span><span>{{order.stopDate}}</span>
                                 </p>
                             </div>
                             <!--按钮-->
                             <div style="float: left;margin: 10px 20px;padding-top: 30px">
-                                <button type="button" class="btn btn-cheng" @click="detailShow(1)">订单详情</button>
+                                <button type="button" class="btn btn-cheng" @click="detailShow(1);pickOrder(index)">订单详情</button>
                             </div>
                         </div>
                     </div>
-                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
-                        <!--状态行-->
+<!--                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
+                        &lt;!&ndash;状态行&ndash;&gt;
                         <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #333D47;">
                             <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>待支付</strong></p>
                         </div>
-                        <!--订单内容-->
+                        &lt;!&ndash;订单内容&ndash;&gt;
                         <div style="overflow:hidden;width: auto;">
-                            <!--图片-->
+                            &lt;!&ndash;图片&ndash;&gt;
                             <div style="float: left;margin: 20px 30px">
                                 <img src="images/b.jpg" style="width: 100px;height: 75px">
                             </div>
-                            <!--内容-->
+                            &lt;!&ndash;内容&ndash;&gt;
                             <div style="float: left;margin: 10px 20px">
                                 <p style="margin: 10px">
                                     悠然青旅
@@ -187,24 +187,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <span style="margin-left: 40px">离开时间：</span><span>2020-10-10</span>
                                 </p>
                             </div>
-                            <!--按钮-->
+                            &lt;!&ndash;按钮&ndash;&gt;
                             <div style="float: left;margin: 10px 20px;padding-top: 30px">
                                 <button type="button" class="btn btn-cheng" @click="detailShow(2)">订单详情</button>
                             </div>
                         </div>
                     </div>
                     <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
-                        <!--状态行-->
+                        &lt;!&ndash;状态行&ndash;&gt;
                         <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #333D47;">
                             <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>待使用</strong></p>
                         </div>
-                        <!--订单内容-->
+                        &lt;!&ndash;订单内容&ndash;&gt;
                         <div style="overflow:hidden;width: auto;">
-                            <!--图片-->
+                            &lt;!&ndash;图片&ndash;&gt;
                             <div style="float: left;margin: 20px 30px">
                                 <img src="images/b.jpg" style="width: 100px;height: 75px">
                             </div>
-                            <!--内容-->
+                            &lt;!&ndash;内容&ndash;&gt;
                             <div style="float: left;margin: 10px 20px">
                                 <p style="margin: 10px">
                                     悠然青旅
@@ -218,27 +218,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </p>
                             </div>
 
-                            <!--按钮-->
+                            &lt;!&ndash;按钮&ndash;&gt;
                             <div style="float: left;margin: 10px 20px;padding-top: 30px">
                                 <button type="button" class="btn btn-cheng" @click="detailShow(3)">订单详情</button>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!--分页-->
                 <div align="center">
                     <div style="margin-top: 10px">
-                        <strong>共 条记录，当前 / 页</strong>
+                        <strong>共{{dateTotal}}条记录，当前{{pageNo}}/{{pages}}页</strong>
                     </div>
+                    <!--<li class="active"><a href="#">1</a></li>-->
                     <nav>
                         <ul class="pagination pagination-lg">
-                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                            <li><a href="#" aria-label="Previous"><span aria-hidden="true" @click="getOrders(pageNo-1)">«</span></a></li>
+                            <li :class="{active:navi==pageNo}" v-for="navi in navigatePageNums" >
+                                <a href="#" v-text="navi" @click="getOrders(navi)"></a>
+                            </li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true" @click="getOrders(pageNo+1)">»</span></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -255,8 +254,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <!--高亮区-->
                     <div style="overflow:hidden;margin: 10px;height: 40px;background-color: #333D47;">
-                        <span style="float: left;margin-left:20px;line-height: 40px;color: #FAA43D"><strong>{{option}}</strong></span>
-                        <span style="float: right;margin-right:20px;line-height: 40px;color: #FAA43D"><strong>40元</strong></span>
+                        <span style="float: left;margin-left:20px;line-height: 40px;color: #FAA43D"><strong>{{ordersList[pickOrderId].orderStatus}}</strong></span>
+                        <span style="float: right;margin-right:20px;line-height: 40px;color: #FAA43D"><strong>{{ordersList[pickOrderId].orderTotal}}元</strong></span>
                     </div>
                     <!--订单信息-->
                     <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
@@ -264,12 +263,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <p><span>入住人：</span>&nbsp;&nbsp;<span>小白</span></p>
                         <p style="overflow: hidden;">
                             <span style="float: left;">入住时间：</span>
-                            <span style="float: left;margin-left: 10px">2020-10-01</span>
-                            <span style="float: right;margin-right: 80px;color: black">2020-10-02</span>
+                            <span style="float: left;margin-left: 10px">{{ordersList[pickOrderId].startDate}}</span>
+                            <span style="float: right;margin-right: 80px;color: black">{{ordersList[pickOrderId].stopDate}}</span>
                             <span style="float: right;color: #adadad">退房时间：</span>
                         </p>
-                        <p><span>订单ID：</span>&nbsp;&nbsp;<span>189867676897</span></p>
-                        <p><span>下单时间：</span>&nbsp;&nbsp;<span>2020-10-01</span></p>
+                        <p><span>订单ID：</span>&nbsp;&nbsp;<span>{{ordersList[pickOrderId].orderNumber}}</span></p>
+                        <p><span>下单时间：</span>&nbsp;&nbsp;<span>{{ordersList[pickOrderId].orderTime}}</span></p>
                     </div>
                     <!--房源地址-->
                     <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
@@ -372,6 +371,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div><!-- /.modal -->
 
     <!--引入js-->
+    <script src="js/jsW/managerOrder01modal.js"></script>
+
     <script src="js/jsW/managerOrder01m.js"></script>
     <script src="js/axios.js"></script>
     <script src="common_js/login.js"></script>
