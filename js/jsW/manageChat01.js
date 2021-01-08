@@ -146,24 +146,26 @@ var app = new Vue({
                     console.log(value.data.data);
                     that.chatDetailList = value.data.data;
                     //定时刷新
-                    that.myds =setInterval(that.timeToRefresh(otherId),1000);
+                    that.myds =setInterval(that.timeToRefresh(otherId),2000);
                 }
             )
         },
         //发送聊天内容
         storeChat:function () {
             var that = this;
-            that.chatMessage.receiverId=this.pickId;
-            that.chatMessage.receiverName=this.pickUserName;
-            that.chatMessage.senderId=this.userId;
-            that.chatMessage.sendName=this.userName;
-            that.chatMessage.content=this.chatContent;
+            that.chatMessage.receiverId=that.pickId;
+            that.chatMessage.receiverName=that.pickUserName;
+            that.chatMessage.senderId=that.userId;
+            that.chatMessage.sendName=that.userName;
+            that.chatMessage.content=that.chatContent;
             //内容不能为空
             if(that.chatContent.trim().length > 0){
                 axios.post(that.tIP+that.chatIP+"storeChat",that.chatMessage, {headers: {'token': that.nowToken}}).then(function (value) {
                     if(value.data.flag == true){
                         console.log("添加成功！");
                         that.chatContent = "";
+                        //重新加载内容
+                        that.timeToRefresh(that.pickId);
                     }else {
                         console.log(value.data.message);
                     }
