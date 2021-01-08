@@ -131,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div style="border: #888f90 1px solid;margin: 20px">
                     <!--关闭按钮-->
                     <div style="overflow:hidden;margin: 0px;width: auto;height: 30px">
-                        <p style="float: left;margin-left:10px;line-height: 30px"><strong>悠然青旅</strong></p>
+                        <p style="float: left;margin-left:10px;line-height: 30px"><strong>{{pickUserName}}</strong></p>
                         <p style="float: right;margin-right:10px;line-height: 30px;color: darkred">
                             <span class="glyphicon glyphicon-remove" @click="detailClose"></span>
                         </p>
@@ -139,28 +139,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div>
                         <!-- 历史框 -->
                         <div style="height: 390px;overflow: auto;padding: 10px;">
-                            <div>
-                                <div>
-                                    <img src="images/a1.jpg" style="width: 50px;height: 50px;border-radius: 25px">&nbsp;&nbsp;
-                                    <span style="color: lightskyblue">悠然青旅</span>&nbsp;&nbsp;
-                                    <span style="color: lightskyblue">2020-10-08 13:10:43</span>
+                            <div v-for="chat in chatDetailList">
+                                <!--对方-->
+                                <div style="margin-bottom: 15px" v-show="chat.senderId == pickId">
+                                    <div>
+                                        <img :src="pickUserImag" alt="图片" style="width: 50px;height: 50px;border-radius: 25px">&nbsp;&nbsp;
+                                        <span style="color: lightskyblue">{{chat.sendName}}</span>&nbsp;&nbsp;
+                                        <span style="color: lightskyblue">{{chat.sendDate}}</span>
+                                    </div>
+                                    <div>
+                                        <p style="margin-top: 10px;background-color: lightskyblue;border-radius: 5px;width: 400px;">
+                                            {{chat.content}}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p style="margin-top: 10px;background-color: lightskyblue;border-radius: 5px;width: 400px;">
-                                        岳阳新闻网,由岳阳市广播电视台主办,岳阳市官方新闻门户网站,以主流广电媒体的专业视角,提供丰富、权威、时效性的资讯,是岳阳市最具影响力的新闻门户网站。
-                                    </p>
-                                </div>
-                            </div>
-                            <div style="overflow: hidden">
-                                <div style="float: right">
-                                    <span style="color: burlywood">2020-10-08 15:19:03</span>&nbsp;&nbsp;
-                                    <span style="color: burlywood">小白</span>&nbsp;&nbsp;
-                                    <img src="images/a2.jpg" style="width: 50px;height: 50px;border-radius: 25px">
-                                </div>
-                                <div style="float: right">
-                                    <p style="margin-top: 10px;background-color: burlywood;border-radius: 5px;width: 400px;">
-                                        岳阳新闻网,由岳阳市广播电视台主办。
-                                    </p>
+                                <!--自己-->
+                                <div style="overflow: hidden;margin-bottom: 15px" v-show="chat.senderId == userId">
+                                    <div style="float: right">
+                                        <span style="color: burlywood">{{chat.sendDate}}</span>&nbsp;&nbsp;
+                                        <span style="color: burlywood">{{chat.sendName}}</span>&nbsp;&nbsp;
+                                        <img :src="userImage" alt="图片" style="width: 50px;height: 50px;border-radius: 25px">
+                                    </div>
+                                    <div style="float: right">
+                                        <p style="margin-top: 10px;background-color: burlywood;border-radius: 5px;width: 400px;">
+                                            {{chat.content}}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -169,10 +173,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- 发送框 -->
                         <div style="padding: 10px">
                             <div>
-                                <textarea style="width: 540px; height: 120px;"></textarea>
+                                <textarea style="width: 540px; height: 120px;" v-model="chatContent"></textarea>
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-primary">发送</button>&nbsp;&nbsp;
+                                <button class="btn btn-primary" @click="storeChat">发送</button>&nbsp;&nbsp;
                             </div>
                         </div>
                     </div>
@@ -189,6 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--引入js-->
     <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
     <script src="js/jsW/manageChatTemp.js"></script>
     <script src="js/axios.js"></script>
     <script src="common_js/login.js"></script>
