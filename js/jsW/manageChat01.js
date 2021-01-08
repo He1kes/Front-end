@@ -36,7 +36,6 @@ var app = new Vue({
     },
     mounted:function(){
         this.getUidByToken();
-        //this.getAllUserDate();
     },
     methods:{
         //展示聊天详情
