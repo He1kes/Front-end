@@ -2,46 +2,46 @@ var app = new Vue({
     el:"#ordinaryContent",
     data:{
         option:"已完成",
-        orderListFlag:true,
+        orderListFlag:false,
         detailFlag:false,
-        codeDivFlag:false,
-        payDivFlag:false,
+        //取消原因
         cancelDivFlag:false,
         //--------
+        tipFlag:false,
+        //取消订单按钮
+        dateFlag:true,
         //网关地址
-        orderIP:"http://localhost:5050/order/",
+        tIP:txqIP,
+        orderIP:"/order/front/private/",
+        //当前用户token
+        nowToken:localStorage.getItem("token"),
         //当前用户id
-        userId:1,
+        userId:"1",
+        nowUser:{},
+        pickUserId:"",
+        pickUser:{},
         //分页
         pageNo:1,
-        pageSize:1,
+        pageSize:3,
         pages:1,
         dateTotal:0,
         navigatePageNums:[],
         //数组
         ordersList:[],
-        landlordsList:[""],
+        landlordsList:[],
+        houseIdList:[],
         //选中的订单index
-        pickOrderId:0
+        pickIndex:"",
+        cancelCause:"",
     },
     mounted:function(){
-        this.getOrders(1);
+        this.getUidByToken();
     },
     methods:{
         //展示订单详情
-        detailShow:function (status) {
+        detailShow:function () {
             this.orderListFlag = false;
-            if(status == 1){
-                this.detailFlag = true;
-            }else if(status == 2){
-                this.detailFlag = true;
-                this.payDivFlag = true;
-                this.option = "待支付";
-            }else{
-                this.detailFlag = true;
-                this.codeDivFlag = true;
-                this.option = "待使用";
-            }
+            this.detailFlag = true;
         },
         //关闭订单详情
         detailClose:function () {
@@ -64,14 +64,46 @@ var app = new Vue({
             this.orderListFlag = true;
         },
         //订单详情页联系房东
-        contactFD:function () {
-            window.location.href = "manageChatTemp.html";
+        contactFD:function (fdID) {
+            window.location.href = "manageChatTemp.html?id="+fdID;
         },
         //--------------------------------------
-        //获取当前用户的订单
-        testfunction:function(){
-            console.log("testfunction");
+        //通过token拿userId
+        getUidByToken: function(){
+            var that = this;
+            console.log(that.nowToken);
+            axios.get(that.tIP+that.orderIP+"getUserIdByToken", {headers: {'token': that.nowToken}}).then(
+                function (value) {
+                    //console.log(value.data.flag);
+                    console.log("getUidByToken:"+value.data.data);
+                    if(value.data.flag == true){
+                        that.userId = value.data.data;
+                        that.getOrders(1);
+                    }else {
+                        console.log(value.data.message);
+                    }
+                    that.getUserData(that.userId);
+                }
+            )
         },
+        //获取用户信息
+        getUserData:function (userId) {
+            var that = this;
+            axios.get(that.tIP+"/user/front/private/getUserData?userId="+userId, {headers: {'token': that.nowToken}}).then(
+                function (value) {
+                    //console.log("getUserData:");
+                    //console.log(value.data.data[0]);
+                    if(userId != that.userId){
+                        that.pickUser = value.data.data[0];
+                        //that.pickUserId = value.data.data[1];
+                    }else {
+                        that.nowUser = value.data.data[0];
+                        //that.userId = value.data.data[1];
+                    }
+                }
+            )
+        },
+        //获取当前用户的订单
         getOrders:function (pageNo) {
             var that = this;
             if(pageNo == null){
@@ -83,22 +115,68 @@ var app = new Vue({
             if(pageNo > that.pages){
                 pageNo = that.pages;
             }
-            axios.get(that.orderIP+"getOrdersByUserIdOrderStatus?pageNo="+pageNo+"&pageSize="+that.pageSize+"&userId="+that.userId).then(
+            axios.get(that.tIP+that.orderIP+"getOrdersByUserIdOrderStatus?pageNo="+pageNo+"&pageSize="+that.pageSize+"&userId="+that.userId, {headers: {'token': that.nowToken}}).then(
                 function (value) {
-                    console.log(value.data.flag);
-                    //console.log(value.data.data.navigatepageNums);
                     that.pageNo = pageNo;
-                    that.navigatePageNums = value.data.data.navigatepageNums;
-                    that.pages = value.data.data.pages;
-                    that.dateTotal = value.data.data.total;
-                    that.ordersList = value.data.data.list;
+                    that.navigatePageNums = value.data.orders.navigatepageNums;
+                    that.pages = value.data.orders.pages;
+                    that.dateTotal = value.data.orders.total;
+                    //数据
+                    that.ordersList = value.data.orders.list;
+                    that.landlordsList = value.data.landIds;
+                    that.houseIdList = value.data.houseIds;
+                    if (that.ordersList.length <= 0) {
+                        that.tipFlag = true;
+                        that.orderListFlag = false;
+                    }else {
+                        that.tipFlag = false;
+                        that.orderListFlag = true;
+                    }
                 }
             )
         },
+        //选中的订单
         pickOrder:function (index) {
             var that = this;
-            that.pickOrderId = index;
-        }
+            that.pickIndex = index;
+            that.pickUserId = that.landlordsList[index];
+            that.getUserData(that.pickUserId);
+            that.checkDate();
+        },
+        //根据houseId获取房源信息------------------------------------
+        getHouseInfo:function () {
+            var that = this;
 
+        },
+        //判断是否超过入住时间
+        checkDate:function () {
+            var that = this;
+            var startDate = that.ordersList[that.pickIndex].startDate;
+            var beginDate = new Date(new Date(new Date(startDate).toLocaleDateString()).getTime()+18*60*60*1000-1);
+            var nowDate = new Date();
+            //当前时间大于入住时间18:00，则隐藏取消订单按钮
+            if(nowDate.getTime() - beginDate.getTime() > 0){
+                that.dateFlag = false;
+            }else{
+                that.dateFlag = true;
+            }
+        },
+        //提交取消订单原因
+        getCancel:function (orderId) {
+            var that = this;
+            axios.get(that.tIP+that.orderIP+"setOrderRemark?orderId="+orderId+"&cancel="+that.cancelCause, {headers: {'token': that.nowToken}}).then(
+                function (value) {
+                    if(value.data.flag == true){
+                        console.log("提交成功！");
+                    }else {
+                        console.log(value.data.message);
+                    }
+                }
+            )
+        },
+        //发起退款--------------------------
+        refund:function () {
+            var that = this;
+        }
     }
 })

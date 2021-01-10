@@ -23,12 +23,24 @@ var app = new Vue({
         chatContent:"",
         chatMessage:{},
         //定时
-        myds:""
+        myds:"",
+        //传过来的房东id
+        id:"",
     },
     mounted:function(){
+        //拿传过来的fdID
+        var url = window.location.href; //获取url中"?"符后的字串
+        var cs = url.split('?')[1];                //获取?之后的参数字符串
+        var nid = "";
+        //alert(url+'地址');//orderCode=20200721093517378188743943022
+        if (cs.length > 0) {
+            nid = cs.replace('id=', '');
+            this.id = decodeURIComponent(nid);
+        }
+        ;
         this.getUidByToken();
-        this.getUserData(this.pickId);
-        this.getChatDetail(this.pickId);
+        this.getUserData(this.id);
+        this.getChatDetail(this.id);
     },
     methods:{
         //关闭聊天详情窗口
@@ -89,7 +101,7 @@ var app = new Vue({
         //发送聊天内容
         storeChat:function () {
             var that = this;
-            that.chatMessage.receiverId=that.pickId;
+            that.chatMessage.receiverId=that.id;
             that.chatMessage.receiverName=that.pickUserName;
             that.chatMessage.senderId=that.userId;
             that.chatMessage.sendName=that.userName;
@@ -101,7 +113,7 @@ var app = new Vue({
                         console.log("添加成功！");
                         that.chatContent = "";
                         //重新加载内容
-                        that.timeToRefresh(that.pickId);
+                        that.timeToRefresh(that.id);
                     }else {
                         console.log(value.data.message);
                     }

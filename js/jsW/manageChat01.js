@@ -88,7 +88,7 @@ var app = new Vue({
                     //ids数组
                     that.IdsList = [];
                     that.IdsList = value.data.data.list;
-                    if(that.IdsList.length < 0){
+                    if(that.IdsList.length <= 0){
                         that.tipFlag = true;
                     }else {
                         //获取与各个用户的未读消息条数
