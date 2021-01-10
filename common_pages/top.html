@@ -136,7 +136,7 @@
                                                 <input type="checkbox"  id="brand" value="">
                                                 <label for="brand"><span></span>记住密码</label>
                                             </div>-->
-                                            <input type="button" v-on:click="doLogin()" class="btn btn-info"  value="立即登录" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1;">
+                                            <input type="button" @click="doLogin()" class="btn btn-info"  value="立即登录" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1;">
                                         </form>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="loginByPhone">
@@ -230,7 +230,7 @@
                             <form>
                                 <h3>注册</h3>
                                 <div class="col-sm-10 col-sm-offset-5" style="padding-left: 0px">
-                                    <img id="image" class="img-circle" v-bind:src="imgSrc" style="width: 65px;height: 65px">
+                                    <img id="image" class="img-circle" :src="imgSrc" style="width: 65px;height: 65px">
                                     <input type="button" @click="fileClick()" class="btn btn-default" id="upload" value="上传头像">
                                     <input type="file" @change="file($event)" name="photo" id="photo">
                                 </div>
@@ -247,7 +247,7 @@
                                 <a @click="getAuthCode()" href="javascript:void(0);"><img :src="authCodeSrc" style="width: 70px; height: 40px; margin-top: 21px; float: right"></a>
 
                                 <span v-if="registerFlag" style="color: #ff5f5f"><br><br><span v-text="registerMessage"></span></span>
-                                <input type="button" v-on:click="submitForm()" class="btn btn-info"  value="立即注册" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1; margin-top: 20px;">
+                                <input type="button" @click="submitForm()" class="btn btn-info"  value="立即注册" style="width: 100%; font-size: 1.5em; font-family: 'PT Sans', sans-serif; background: #2da9e1; margin-top: 20px;">
                             </form>
                         </div>
                         <div class="clearfix"></div>
