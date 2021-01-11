@@ -509,7 +509,7 @@
                     let that = this;
                     axios.post(txqIP + "/user/front/public/doLogin", formData)
                         .then(function (result) {
-                            //data[0]代表查询结果，data[1]代表返回的token值，1登录成功，0登录不成功,result.data.data[2]表示userId
+                            //data[0]代表查询结果，1登录成功，0登录不成功,2表示被封禁data[1]代表返回的token值，result.data.data[2]表示userId
                             if (result.data.data[0] == 1) {
                                 that.flag = false;
                                 localStorage.setItem('token',result.data.data[1]);
@@ -518,7 +518,11 @@
                                 $('#loginModal').modal('hide');
                                 window.location.reload();
                             } else {
-                                that.flag = true;
+                                if (result.data.data[0] == 0) {
+                                    that.flag = true;
+                                } else {
+                                    alert('您已被封禁，请联系管理员解除！');
+                                }
                             }
                         });
                 }
@@ -578,8 +582,12 @@
                                 $('#loginModal').modal('hide');
                                 window.location.reload();
                             } else {
-                                that.phoneCodeMessage = result.data.message;
-                                that.codeFlag = true;
+                                if (result.data.data[0] == 0) {
+                                    that.phoneCodeMessage = result.data.message;
+                                    that.codeFlag = true;
+                                } else {
+                                    alert('您已被封禁，请联系管理员解除！');
+                                }
                             }
                         });
                 }
