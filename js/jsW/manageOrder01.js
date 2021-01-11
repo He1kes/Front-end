@@ -31,8 +31,8 @@ var app = new Vue({
         landlordsList:[],
         houseIdList:[],
         //选中的订单index
-        pickIndex:"",
-        cancelCause:"",
+        pickIndex:0,
+        cancelCause:"其他",
     },
     mounted:function(){
         this.getUidByToken();
@@ -47,16 +47,12 @@ var app = new Vue({
         detailClose:function () {
             this.orderListFlag = true;
             this.detailFlag = false;
-            this.codeDivFlag = false;
-            this.payDivFlag = false;
         },
         //展示取消订单
         cancelShow:function () {
             this.cancelDivFlag = true;
             this.orderListFlag = false;
             this.detailFlag = false;
-            this.codeDivFlag = false;
-            this.payDivFlag = false;
         },
         //关闭取消订单
         cancelClose:function () {
@@ -106,6 +102,8 @@ var app = new Vue({
         //获取当前用户的订单
         getOrders:function (pageNo) {
             var that = this;
+            //因为订单详情也在这个页面，进来就会加载，所以先给个0保证有值，不会加载页面出错
+            that.pickIndex = 0;
             if(pageNo == null){
                 pageNo = that.pageNo;
             }
@@ -122,6 +120,7 @@ var app = new Vue({
                     that.pages = value.data.orders.pages;
                     that.dateTotal = value.data.orders.total;
                     //数据
+                    console.log(value.data.orders.list);
                     that.ordersList = value.data.orders.list;
                     that.landlordsList = value.data.landIds;
                     that.houseIdList = value.data.houseIds;
@@ -151,14 +150,33 @@ var app = new Vue({
         //判断是否超过入住时间
         checkDate:function () {
             var that = this;
-            var startDate = that.ordersList[that.pickIndex].startDate;
-            var beginDate = new Date(new Date(new Date(startDate).toLocaleDateString()).getTime()+18*60*60*1000-1);
-            var nowDate = new Date();
-            //当前时间大于入住时间18:00，则隐藏取消订单按钮
-            if(nowDate.getTime() - beginDate.getTime() > 0){
-                that.dateFlag = false;
+            var orderStatus = that.ordersList[that.pickIndex].orderStatus;
+            var orderId = that.ordersList[that.pickIndex].id;
+            var success = "已消费";
+            if(orderStatus == "待入住"){
+                var startDate = that.ordersList[that.pickIndex].startDate;
+                var beginDate = new Date(new Date(new Date(startDate).toLocaleDateString()).getTime()+18*60*60*1000-1);
+                var nowDate = new Date();
+                //当前时间大于入住时间18:00，则隐藏取消订单按钮
+                if(nowDate.getTime() - beginDate.getTime() > 0){
+                    that.dateFlag = false;
+                    //将待入住置为已消费
+                    axios.get(that.tIP+that.orderIP+"updateOrderStatus?orderId="+orderId+"&orderStatus="+success, {headers: {'token': that.nowToken}}).then(
+                        function (value) {
+                            if(value.data.flag == true){
+                                console.log("成功置为已消费！");
+                                //刷新订单列表
+                                that.getOrders(that.pageNo);
+                            }else {
+                                console.log(value.data.message);
+                            }
+                        }
+                    )
+                }else{
+                    that.dateFlag = true;
+                }
             }else{
-                that.dateFlag = true;
+                that.dateFlag = false;
             }
         },
         //提交取消订单原因

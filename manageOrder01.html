@@ -262,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div style="margin-top:10px">
                             <input name="cancelCause" type="radio" value="下错订单" v-model="cancelCause">下错订单&nbsp;&nbsp;&nbsp;
                             <input name="cancelCause" type="radio" value="行程有变" v-model="cancelCause">行程有变&nbsp;&nbsp;&nbsp;
-                            <input name="cancelCause" type="radio" value="其他" v-model="cancelCause" checked>其他
+                            <input name="cancelCause" type="radio" value="其他" v-model="cancelCause">其他
                         </div>
                     </div>
                     <div style="margin:10px;" align="center">
@@ -286,7 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" @click="goOrderList()">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div style="margin:10px;padding:10px;" align="center">
@@ -296,7 +296,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-cheng" @click="getOrders(pageNo)">确认</button>
+                    <button type="button" class="btn btn-cheng" @click="goOrderList()">确认</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
