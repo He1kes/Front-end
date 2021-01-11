@@ -35,6 +35,7 @@ var app = new Vue({
         //选中的订单index
         pickIndex:0,
         cancelCause:"其他",
+        ordStatus:"待支付"
     },
     mounted:function(){
         this.getUidByToken();
@@ -115,7 +116,7 @@ var app = new Vue({
             if(pageNo > that.pages){
                 pageNo = that.pages;
             }
-            axios.get(that.tIP+that.orderIP+"getOrdersByUserIdOrderStatus?pageNo="+pageNo+"&pageSize="+that.pageSize+"&userId="+that.userId, {headers: {'token': that.nowToken}}).then(
+            axios.get(that.tIP+that.orderIP+"getOrdersByUserIdOrderStatus?pageNo="+pageNo+"&pageSize="+that.pageSize+"&userId="+that.userId+"&orderStatus="+that.ordStatus, {headers: {'token': that.nowToken}}).then(
                 function (value) {
                     that.pageNo = pageNo;
                     that.navigatePageNums = value.data.orders.navigatepageNums;

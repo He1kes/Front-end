@@ -127,10 +127,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
             </ul>
         </div>
-        <!--内容框-->
         <!--控制样式-->
         <div class="col-xs-1 col-md-2"></div>
-
+        <!--内容框-->
         <div id="ordinaryContent" class="col-xs-10 col-md-6">
             <!--提示框-->
             <div align="center" style="margin: 50px 400px;border: #333D47 1px solid" v-show="tipFlag">
@@ -155,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!--内容-->
                             <div style="float: left;margin: 10px 20px">
                                 <p style="margin: 10px">
-                                    悠然青旅
+                                    {{houseInfoList[index].lot}}
                                 </p>
                                 <p style="margin: 10px">
                                     <span>总价：</span><span>{{order.orderTotal}}元</span>
@@ -219,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!--房源地址-->
                     <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
                         <p><strong>房源信息</strong></p>
-                        <p><span>详细地址：</span>&nbsp;&nbsp;<span>岳阳岳阳楼万路举人坡巷21号</span></p>
+                        <p><span>详细地址：</span>&nbsp;&nbsp;<span>{{houseInfoList[pickIndex].address}}</span></p>
                         <p><span>房东：</span>&nbsp;&nbsp;<span>{{pickUser.userName}}</span></p>
                         <p><span>联系电话：</span>&nbsp;&nbsp;<span>{{pickUser.phone}}</span></p>
                         <p><span>联系房东：</span>&nbsp;&nbsp;<span class="glyphicon glyphicon-comment" style="color: #FAA43D" @click="contactFD(pickUserId)"></span></p>

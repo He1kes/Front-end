@@ -49,6 +49,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
     <script src="common_js/common.js"></script>
     <!--common-->
     <script type="text/javascript">
@@ -60,255 +62,247 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
-
-<!---header--->
-<div class="header-section">
-    <div class="container">
-        <div class="head-top">
-            <div class="social-icon">
-                <a href="#"><i class="icon"></i></a>
-                <a href="#"><i class="icon1"></i></a>
-                <a href="#"><i class="icon2"></i></a>
-                <a href="#"><i class="icon3"></i></a>
-                <a href="#"><i class="icon4"></i></a>
-            </div>
-            <div id="loginOut" class="email">
-                <ul>
-                    <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
-                    <li><a @click="loginOut()" href="javascript:void(0);"><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i></a> <a href="index.html">返回首页</a></li>
-                    <li><img class="img-circle" :src="imgSrc" style="width: 45px;height: 45px">&nbsp;欢迎,<span v-text="userName"></span></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!---header--->
-
-<div style="overflow: hidden">
-    <!--菜单栏-->
-    <div id="ordinaryMenu" style="float: left;overflow: hidden">
-        <ul class="list-group" style="float: left;margin: 10px 0px;">
-            <li class="list-group-item" >
-                个人信息
-                <ul class="list-group" style="margin-bottom: 18px;">
-                    <li class="list-group-item"><a href="manageself.html">修改个人信息</a></li>
-                    <li class="list-group-item"><a href="updatepassword.html">修改密码</a></li>
-                    <li class="list-group-item"><a href="mycoupon.html">我的优惠券</a></li>
-                </ul>
-            </li>
-            <li class="list-group-item">
-                我的订单
-                <ul class="list-group" style="margin-bottom: 18px;">
-                    <li class="list-group-item"><a href="manageOrder01.html">全部订单</a></li>
-                    <!--<li class="list-group-item"><a href="manageOrder02.html">待支付</a></li>-->
-                    <li class="list-group-item"><a href="manageOrder03.html">待入住</a></li>
-                </ul>
-            </li>
-            <li class="list-group-item">
-                我的消息
-                <ul class="list-group" style="margin-bottom: 18px;">
-                    <li class="list-group-item"><a href="manageChat01.html">查看消息</a></li>
-                </ul>
-            </li>
-            <li class="list-group-item">
-                我的心愿单
-                <ul class="list-group" style="margin-bottom: 18px;">
-                    <li class="list-group-item"><a href="manageCollection.html">查看心愿单</a></li>
-                </ul>
-            </li>
-            <li class="list-group-item">
-                我的评论
-                <ul class="list-group" style="margin-bottom: 18px;">
-                    <li class="list-group-item"><a href="manageComment.html">查看评论</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="col-xs-1 col-md-2"></div>
-    <!--内容框-->
-    <div id="ordinaryContent" class="col-xs-10 col-md-6">
-        <!--订单-->
-        <div v-show="orderListFlag">
-            <!--订单列表-->
-            <div id="orderListsCss">
-                <!--单个订单-->
-                <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px">
-                    <!--状态行-->
-                    <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #333D47;">
-                        <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>待使用</strong></p>
-                    </div>
-                    <!--订单内容-->
-                    <div style="overflow:hidden;width: auto;">
-                        <!--图片-->
-                        <div style="float: left;margin: 20px 30px">
-                            <img src="images/b.jpg" style="width: 100px;height: 75px">
-                        </div>
-                        <!--内容-->
-                        <div style="float: left;margin: 10px 20px">
-                            <p style="margin: 10px">
-                                悠然青旅
-                            </p>
-                            <p style="margin: 10px">
-                                <span>总价：</span><span>40元</span>
-                            </p>
-                            <p style="margin: 10px">
-                                <span>入住时间：</span><span>2020-10-09</span>
-                                <span style="margin-left: 40px">离开时间：</span><span>2020-10-10</span>
-                            </p>
-                        </div>
-                        <!--按钮-->
-                        <div style="float: left;margin: 10px 20px;padding-top: 30px">
-                            <button type="button" class="btn btn-cheng" @click="detailShow(3)">订单详情</button>
-                        </div>
-                    </div>
+    <!---header--->
+    <div class="header-section">
+        <div class="container">
+            <div class="head-top">
+                <div class="social-icon">
+                    <a href="#"><i class="icon"></i></a>
+                    <a href="#"><i class="icon1"></i></a>
+                    <a href="#"><i class="icon2"></i></a>
+                    <a href="#"><i class="icon3"></i></a>
+                    <a href="#"><i class="icon4"></i></a>
                 </div>
-            </div>
-            <!--分页-->
-            <div align="center">
-                <div style="margin-top: 10px">
-                    <strong>共 条记录，当前 / 页</strong>
-                </div>
-                <nav>
-                    <ul class="pagination pagination-lg">
-                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                <div id="loginOut" class="email">
+                    <ul>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 2em"></i>Email: <a href="#">info@example.com</a> </li>
+                        <li><a @click="loginOut()" href="javascript:void(0);"><i class="glyphicon glyphicon-log-out" aria-hidden="true" style="font-size: 2em"></i></a> <a href="index.html">返回首页</a></li>
+                        <li><img class="img-circle" :src="imgSrc" style="width: 45px;height: 45px">&nbsp;欢迎,<span v-text="userName"></span></li>
                     </ul>
-                </nav>
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
+    </div>
+    <!---header--->
 
-        <!--展示订单详情-->
-        <div style="width: auto" v-show="detailFlag">
-            <div id="orderDetailCss" style="border: #FAA43D 1px solid;margin: 20px;">
-                <!--关闭按钮-->
-                <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
-                    <p style="float: right;margin:0px 10px;line-height: 30px;">
-                        <span class="glyphicon glyphicon-remove" style="color: darkred" @click="detailClose"></span>
-                    </p>
-                </div>
-                <!--高亮区-->
-                <div style="overflow:hidden;margin: 10px;height: 40px;background-color: #333D47;">
-                    <span style="float: left;margin-left:20px;line-height: 40px;color: #FAA43D"><strong>{{option}}</strong></span>
-                    <span style="float: right;margin-right:20px;line-height: 40px;color: #FAA43D"><strong>40元</strong></span>
-                </div>
-                <!--订单信息-->
-                <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
-                    <p><strong>订单信息</strong></p>
-                    <p><span>入住人：</span>&nbsp;&nbsp;<span>小白</span></p>
-                    <p style="overflow: hidden;">
-                        <span style="float: left;">入住时间：</span>
-                        <span style="float: left;margin-left: 10px">2020-10-01</span>
-                        <span style="float: right;margin-right: 80px;color: black">2020-10-02</span>
-                        <span style="float: right;color: #adadad">退房时间：</span>
-                    </p>
-                    <p><span>订单ID：</span>&nbsp;&nbsp;<span>189867676897</span></p>
-                    <p><span>下单时间：</span>&nbsp;&nbsp;<span>2020-10-01</span></p>
-                </div>
-                <!--房源地址-->
-                <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
-                    <p><strong>房源信息</strong></p>
-                    <p><span>详细地址：</span>&nbsp;&nbsp;<span>岳阳岳阳楼万路举人坡巷21号</span></p>
-                    <p><span>房东：</span>&nbsp;&nbsp;<span>悠然青旅</span></p>
-                    <p><span>联系电话：</span>&nbsp;&nbsp;<span>18738940789</span></p>
-                    <p><span>联系房东：</span>&nbsp;&nbsp;<span class="glyphicon glyphicon-comment" style="color: #FAA43D" @click="contactFD"></span></p>
-                </div>
-                <!--提示框-->
-                <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
-                    <p><strong>提示</strong></p>
-                    <p><span>提供发票：</span>&nbsp;&nbsp;<span>开具发票需要和房东进行协商</span></p>
-                    <p><span>退订政策：</span>&nbsp;&nbsp;<span>灵活的取消政策</span></p>
-                </div>
-                <!--待支付-->
-                <div v-show="payDivFlag">
-                    <!--操作按钮-->
-                    <div style="margin:10px;padding:10px;" align="center">
-                        <button type="button" class="btn" style="color: red" @click="cancelShow">取消订单</button>
-                        <button type="button" class="btn btn-cheng" style="margin-left: 40px">支付订单</button>
+    <div style="overflow: hidden">
+        <!--菜单栏-->
+        <div id="ordinaryMenu" style="float: left;overflow: hidden">
+            <ul class="list-group" style="float: left;margin: 10px 0px;">
+                <li class="list-group-item" >
+                    个人信息
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="manageself.html">修改个人信息</a></li>
+                        <li class="list-group-item"><a href="updatepassword.html">修改密码</a></li>
+                        <li class="list-group-item"><a href="mycoupon.html">我的优惠券</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的订单
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="manageOrder01.html">全部订单</a></li>
+                        <!--<li class="list-group-item"><a href="manageOrder02.html">待支付</a></li>-->
+                        <li class="list-group-item"><a href="manageOrder03.html">待入住</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的消息
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="manageChat01.html">查看消息</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的心愿单
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="manageCollection.html">查看心愿单</a></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    我的评论
+                    <ul class="list-group" style="margin-bottom: 18px;">
+                        <li class="list-group-item"><a href="manageComment.html">查看评论</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--控制样式-->
+        <div class="col-xs-1 col-md-2"></div>
+        <!--内容框-->
+        <div id="ordinaryContent" class="col-xs-10 col-md-6">
+            <!--提示框-->
+            <div align="center" style="margin: 50px 400px;border: #333D47 1px solid" v-show="tipFlag">
+                <p style="color: #adadad;font-size:20px;font-weight: bold">暂无订单信息！</p>
+            </div>
+            <!--订单-->
+            <div v-show="orderListFlag">
+                <!--订单列表-->
+                <div id="orderListsCss">
+                    <!--单个订单-->
+                    <div style="margin: 20px;border: #888f90 1px solid;border-radius: 5px" v-for="(order,index) in ordersList">
+                        <!--状态行-->
+                        <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #333D47;">
+                            <p style="float: right;margin-right:20px;line-height: 30px;color: #FAA43D"><strong>{{order.orderStatus}}</strong></p>
+                        </div>
+                        <!--订单内容-->
+                        <div style="overflow:hidden;width: auto;">
+                            <!--图片-->
+                            <div style="float: left;margin: 20px 30px">
+                                <img src="images/b.jpg" style="width: 100px;height: 75px">
+                            </div>
+                            <!--内容-->
+                            <div style="float: left;margin: 10px 20px">
+                                <p style="margin: 10px">
+                                    {{houseInfoList[index].lot}}
+                                </p>
+                                <p style="margin: 10px">
+                                    <span>总价：</span><span>{{order.orderTotal}}元</span>
+                                </p>
+                                <p style="margin: 10px">
+                                    <span>入住时间：</span><span>{{order.startDate}}</span>
+                                    <span style="margin-left: 40px">离开时间：</span><span>{{order.stopDate}}</span>
+                                </p>
+                            </div>
+                            <!--按钮-->
+                            <div style="float: left;margin: 10px 20px;padding-top: 30px">
+                                <button type="button" class="btn btn-cheng" @click="detailShow();pickOrder(index)">订单详情</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!--待使用-->
-                <div v-show="codeDivFlag">
-                    <!--消费码-->
-                    <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;" >
-                        <p><strong>消费券：</strong>&nbsp;&nbsp;<strong>53476784</strong></p>
+                <!--分页-->
+                <div align="center">
+                    <div style="margin-top: 10px">
+                        <strong>共{{dateTotal}}条记录，当前{{pageNo}}/{{pages}}页</strong>
                     </div>
-                    <!--操作按钮-->
-                    <div style="margin:10px;padding:10px;" align="center">
-                        <button type="button" class="btn" style="color: red" @click="cancelShow">取消订单</button>
+                    <nav>
+                        <ul class="pagination pagination-lg">
+                            <li><a href="#" aria-label="Previous"><span aria-hidden="true" @click="getOrders(pageNo-1)">«</span></a></li>
+                            <li :class="{active:navi==pageNo}" v-for="navi in navigatePageNums" >
+                                <a href="#" v-text="navi" @click="getOrders(navi)"></a>
+                            </li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true" @click="getOrders(pageNo+1)">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!--展示订单详情-->
+            <div style="width: auto" v-show="detailFlag">
+                <div id="orderDetailCss" style="border: #FAA43D 1px solid;margin: 20px;">
+                    <!--关闭按钮-->
+                    <div style="overflow:hidden;margin: 0px;width: auto;height: 30px;background-color: #f7f7f7">
+                        <p style="float: right;margin:0px 10px;line-height: 30px;">
+                            <span class="glyphicon glyphicon-remove" style="color: darkred" @click="detailClose()"></span>
+                        </p>
+                    </div>
+                    <!--高亮区-->
+                    <div style="overflow:hidden;margin: 10px;height: 40px;background-color: #333D47;">
+                        <span style="float: left;margin-left:20px;line-height: 40px;color: #FAA43D"><strong>{{ordersList[pickIndex].orderStatus}}</strong></span>
+                        <span style="float: right;margin-right:20px;line-height: 40px;color: #FAA43D"><strong>{{ordersList[pickIndex].orderTotal}}元</strong></span>
+                    </div>
+                    <!--订单信息-->
+                    <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
+                        <p><strong>订单信息</strong></p>
+                        <p><span>入住人：</span>&nbsp;&nbsp;<span>{{nowUser.userName}}</span></p>
+                        <p style="overflow: hidden;">
+                            <span style="float: left;">入住时间：</span>
+                            <span style="float: left;margin-left: 10px">{{ordersList[pickIndex].startDate}}</span>
+                            <span style="float: right;margin-right: 80px;color: black">{{ordersList[pickIndex].stopDate}}</span>
+                            <span style="float: right;color: #adadad">退房时间：</span>
+                        </p>
+                        <p><span>订单ID：</span>&nbsp;&nbsp;<span>{{ordersList[pickIndex].orderNumber}}</span></p>
+                        <p><span>下单时间：</span>&nbsp;&nbsp;<span>{{ordersList[pickIndex].orderTime}}</span></p>
+                    </div>
+                    <!--房源地址-->
+                    <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
+                        <p><strong>房源信息</strong></p>
+                        <p><span>详细地址：</span>&nbsp;&nbsp;<span>{{houseInfoList[pickIndex].address}}</span></p>
+                        <p><span>房东：</span>&nbsp;&nbsp;<span>{{pickUser.userName}}</span></p>
+                        <p><span>联系电话：</span>&nbsp;&nbsp;<span>{{pickUser.phone}}</span></p>
+                        <p><span>联系房东：</span>&nbsp;&nbsp;<span class="glyphicon glyphicon-comment" style="color: #FAA43D" @click="contactFD(pickUserId)"></span></p>
+                    </div>
+                    <!--提示框-->
+                    <div style="margin:10px;padding:10px;border: #FAA43D 1px solid;">
+                        <p><strong>提示</strong></p>
+                        <p><span>提供发票：</span>&nbsp;&nbsp;<span>开具发票需要和房东进行协商</span></p>
+                        <p><span>退订政策：</span>&nbsp;&nbsp;<span>灵活的取消政策</span></p>
+                    </div>
+                    <!--待支付（砍掉）-->
+                    <!--待入住-->
+                    <div v-show="dateFlag">
+                        <!--操作按钮-->
+                        <div style="margin:10px;padding:10px;" align="center">
+                            <button type="button" class="btn" style="color: red" @click="cancelShow()">取消订单</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!--取消订单-->
-        <div v-show="cancelDivFlag">
-            <div style="border: #FAA43D 1px solid;margin: 20px;width: auto">
-                <!--关闭按钮-->
-                <div style="margin: 0px;height: 30px;background-color: #f7f7f7">
-                    <p style="overflow: hidden;line-height: 30px;">
-                        <span style="float: left;margin-left: 10px;color: #FAA43D"><strong>取消订单</strong></span>
-                        <span class="glyphicon glyphicon-remove" style="float: right;margin: 7px 10px;color: darkred" @click="cancelClose"></span>
-                    </p>
-                </div>
-                <div style="margin:10px;padding:10px;">
-                    <p><strong>取消订单后，退款将于七个工作日退回您的支付账户。</strong></p>
-                </div>
-                <div style="margin:10px;padding:10px;">
-                    <p><span>退订政策：</span>&nbsp;&nbsp;<span>灵活的取消政策</span></p>
-                </div>
-                <div style="margin:10px;padding:10px;">
-                    <p>取消原因:</p>
-                    <div style="margin-top:10px">
-                        <input name="cancelCause" type="radio" value="" >下错订单&nbsp;&nbsp;&nbsp;
-                        <input name="cancelCause" type="radio" value="" >行程有变&nbsp;&nbsp;&nbsp;
-                        <input name="cancelCause" type="radio" value="" checked>其他
+            <!--取消订单-->
+            <div v-show="cancelDivFlag">
+                <div style="border: #FAA43D 1px solid;margin: 20px;width: auto">
+                    <!--关闭按钮-->
+                    <div style="margin: 0px;height: 30px;background-color: #f7f7f7">
+                        <p style="overflow: hidden;line-height: 30px;">
+                            <span style="float: left;margin-left: 10px;color: #FAA43D"><strong>取消订单</strong></span>
+                            <span class="glyphicon glyphicon-remove" style="float: right;margin: 7px 10px;color: darkred" @click="cancelClose()"></span>
+                        </p>
                     </div>
-                </div>
-                <div style="margin:10px;" align="center">
-                    <button type="button" class="btn btn-cheng" data-toggle="modal" data-target="#cancelSuccessModal">确认</button>
+                    <div style="margin:10px;padding:10px;">
+                        <p><strong>取消订单后，退款将于三个工作日内退回您的支付账户。</strong></p>
+                    </div>
+                    <div style="margin:10px;padding:10px;">
+                        <p><span>退订政策：</span>&nbsp;&nbsp;<span>灵活的取消政策</span></p>
+                    </div>
+                    <div style="margin:10px;padding:10px;">
+                        <p>取消原因:</p>
+                        <div style="margin-top:10px">
+                            <input name="cancelCause" type="radio" value="下错订单" v-model="cancelCause">下错订单&nbsp;&nbsp;&nbsp;
+                            <input name="cancelCause" type="radio" value="行程有变" v-model="cancelCause">行程有变&nbsp;&nbsp;&nbsp;
+                            <input name="cancelCause" type="radio" value="其他" v-model="cancelCause">其他
+                        </div>
+                    </div>
+                    <div style="margin:10px;" align="center">
+                        <button type="button" class="btn btn-cheng"
+                                data-toggle="modal" data-target="#cancelSuccessModal"
+                                @click="getCancel(ordersList[pickIndex].id);refund()">确认</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!--footer-->
-<div class="footer">
+    <!--footer-->
+    <div class="footer">
 
-</div>
-<!--footer-->
+    </div>
+    <!--footer-->
 
-<!--引入js-->
-<script src="js/vue.js"></script>
-<script src="js/jsW/manageOrder01.js"></script>
-
-<!--模态框-->
-<div id="cancelSuccessModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div style="margin:10px;padding:10px;" align="center">
-                    <p><span class="glyphicon glyphicon-ok" style="color: green;font-size: large"></span></p>
-                    <p><strong>订单取消成功!</strong></p>
-                    <p><strong>（请等待平台审核退款）</strong></p>
+    <!--模态框-->
+    <div id="cancelSuccessModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" @click="goOrderList()">&times;</span></button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-cheng" data-dismiss="modal">确认</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<script src="js/axios.js"></script>
-<script src="common_js/login.js"></script>
+                <div class="modal-body">
+                    <div style="margin:10px;padding:10px;" align="center">
+                        <p><span class="glyphicon glyphicon-ok" style="color: green;font-size: large"></span></p>
+                        <p><strong>订单取消成功!</strong></p>
+                        <p><strong>（请等待平台退款）</strong></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cheng" @click="goOrderList()">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--引入js-->
+    <script src="js/jsW/manageOrder03.js"></script>
+    <script src="js/jsW/managerOrder01modal.js"></script>
+    <script src="common_js/login.js"></script>
 </body>
 </html>>
