@@ -207,10 +207,6 @@ var app = new Vue({
                     //console.log(that.houseInfoList);
                 }
             )
-        },
-        //发起退款--------------------------
-        refund:function () {
-            var that = this;
         }
     }
 })
