@@ -149,7 +149,7 @@ var app = new Vue({
                     //定时刷新
                     that.myds =setInterval(function(){
                         that.timeToRefresh(otherId);
-                    },2000);
+                    },3000);
                 }
             )
         },
@@ -168,7 +168,7 @@ var app = new Vue({
                         console.log("添加成功！");
                         that.chatContent = "";
                         //重新加载内容
-                        //that.timeToRefresh(that.pickId);
+                        that.timeToRefresh(that.pickId);
                     }else {
                         console.log(value.data.message);
                     }

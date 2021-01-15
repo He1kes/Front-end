@@ -96,7 +96,7 @@ var app = new Vue({
                     //定时刷新
                     that.myds =setInterval(function(){
                         that.timeToRefresh(otherId);
-                    },2000);
+                    },3000);
                 }
             )
         },
