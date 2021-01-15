@@ -134,6 +134,7 @@ var app = new Vue({
         },
         //获取聊天具体信息
         getChatDetail:function (otherId,index) {
+
             var that = this;
             that.pickId = otherId;
             that.pickUserImag= that.userNamePhoList[index].uimage;
@@ -146,7 +147,9 @@ var app = new Vue({
                     console.log(value.data.data);
                     that.chatDetailList = value.data.data;
                     //定时刷新
-                    that.myds =setInterval(that.timeToRefresh(otherId),2000);
+                    that.myds =setInterval(function(){
+                        that.timeToRefresh(otherId);
+                    },2000);
                 }
             )
         },
@@ -165,7 +168,7 @@ var app = new Vue({
                         console.log("添加成功！");
                         that.chatContent = "";
                         //重新加载内容
-                        that.timeToRefresh(that.pickId);
+                        //that.timeToRefresh(that.pickId);
                     }else {
                         console.log(value.data.message);
                     }
@@ -192,7 +195,7 @@ var app = new Vue({
         timeToRefresh:function (otherId) {
             var that = this;
             that.chatDetailList = [];
-            console.log("timeToRefresh");
+            console.log("timeToRefresh-ds");
             axios.get(that.tIP+that.chatIP+"getChatDetail?otherId="+otherId+"&selfId="+that.userId, {headers: {'token': that.nowToken}}).then(
                 function (value) {
                     console.log(value.data.data);

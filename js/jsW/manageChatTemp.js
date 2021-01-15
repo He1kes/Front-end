@@ -94,7 +94,9 @@ var app = new Vue({
                     console.log(value.data.data);
                     that.chatDetailList = value.data.data;
                     //定时刷新
-                    that.myds =setInterval(that.timeToRefresh(otherId),1000);
+                    that.myds =setInterval(function(){
+                        that.timeToRefresh(otherId);
+                    },2000);
                 }
             )
         },
