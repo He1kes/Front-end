@@ -32,6 +32,7 @@ var app = new Vue({
         landlordsList:[],
         houseIdList:[],
         houseInfoList:[],
+        housePicList:[],
         //选中的订单index
         pickIndex:0,
         cancelCause:"其他",
@@ -64,6 +65,10 @@ var app = new Vue({
         //订单详情页联系房东
         contactFD:function (fdID) {
             window.location.href = "manageChatTemp.html?id="+fdID;
+        },
+        //暂无订单信息页面
+        goZwsj:function(){
+            window.location.href = "manageOrderTip.html";
         },
         //--------------------------------------
         //通过token拿userId
@@ -102,7 +107,7 @@ var app = new Vue({
             )
         },
         //获取当前用户的订单
-        getOrders:function (pageNo) {
+        getOrders: async function (pageNo) {
             var that = this;
             //因为订单详情也在这个页面，进来就会加载，所以先给个0保证有值，不会加载页面出错
             that.pickIndex = 0;
@@ -115,7 +120,7 @@ var app = new Vue({
             if(pageNo > that.pages){
                 pageNo = that.pages;
             }
-            axios.get(that.tIP+that.orderIP+"getOrdersByUserIdOrderStatus?pageNo="+pageNo+"&pageSize="+that.pageSize+"&userId="+that.userId, {headers: {'token': that.nowToken}}).then(
+            await axios.get(that.tIP+that.orderIP+"getOrdersByUserIdOrderStatus?pageNo="+pageNo+"&pageSize="+that.pageSize+"&userId="+that.userId, {headers: {'token': that.nowToken}}).then(
                 function (value) {
                     that.pageNo = pageNo;
                     that.navigatePageNums = value.data.orders.navigatepageNums;
@@ -127,15 +132,18 @@ var app = new Vue({
                     that.landlordsList = value.data.landIds;
                     that.houseIdList = value.data.houseIds;
                     if (that.ordersList.length <= 0) {
-                        that.tipFlag = true;
-                        that.orderListFlag = false;
+                        /*that.tipFlag = true;
+                        that.orderListFlag = false;*/
+                        that.goZwsj();
                     }else {
-                        that.houseInfoList = [];
-                        for(var i=0;i<that.houseIdList.length;i++){
-                            that.getHouseInfo(that.houseIdList[i]);
-                        }
                         that.tipFlag = false;
                         that.orderListFlag = true;
+                        that.houseInfoList = [];
+                        that.housePicList = [];
+                        for(var i=0;i<that.houseIdList.length;i++){
+                            that.getHouseInfo(that.houseIdList[i]);
+                            that.getHousePic(that.houseIdList[i]);
+                        }
                     }
                 }
             )
@@ -194,9 +202,9 @@ var app = new Vue({
             )
         },
         //根据houseId获取房源信息
-        getHouseInfo:function (houseId) {
+        getHouseInfo: async function (houseId) {
             var that = this;
-            axios.get(that.tIP+that.ohouseIP+"getHouseInfo?id="+houseId).then(
+            await axios.get(that.tIP+that.ohouseIP+"getHouseInfo?id="+houseId).then(
                 function (value) {
                     if(value.data.flag == true){
                         that.houseInfoList.push(value.data.data);
@@ -204,6 +212,19 @@ var app = new Vue({
                         console.log(value.data.message);
                     }
                     //console.log(that.houseInfoList);
+                }
+            )
+        },
+        //根据houseId获取房源图片
+        getHousePic: async function (houseId) {
+            var that = this;
+            await axios.get(that.tIP+that.ohouseIP+"allPathById?houseId="+houseId).then(
+                function (value) {
+                    if(value.data.flag == true){
+                        that.housePicList.push(value.data.data[0].path);
+                    }else {
+                        console.log(value.data.message);
+                    }
                 }
             )
         }

@@ -32,6 +32,7 @@ var app = new Vue({
         landlordsList:[],
         houseIdList:[],
         houseInfoList:[],
+        housePicList:[],
         //选中的订单index
         pickIndex:0,
         cancelCause:"其他",
@@ -65,6 +66,10 @@ var app = new Vue({
         //订单详情页联系房东
         contactFD:function (fdID) {
             window.location.href = "manageChatTemp.html?id="+fdID;
+        },
+        //暂无订单信息页面
+        goZwsj:function(){
+            window.location.href = "manageOrderTip.html";
         },
         //--------------------------------------
         //通过token拿userId
@@ -128,12 +133,15 @@ var app = new Vue({
                     that.landlordsList = value.data.landIds;
                     that.houseIdList = value.data.houseIds;
                     if (that.ordersList.length <= 0) {
-                        that.tipFlag = true;
-                        that.orderListFlag = false;
+                        /*that.tipFlag = true;
+                        that.orderListFlag = false;*/
+                        that.goZwsj();
                     }else {
                         that.houseInfoList = [];
+                        that.housePicList = [];
                         for(var i=0;i<that.houseIdList.length;i++){
                             that.getHouseInfo(that.houseIdList[i]);
+                            that.getHousePic(that.houseIdList[i]);
                         }
                         that.tipFlag = false;
                         that.orderListFlag = true;
@@ -205,6 +213,19 @@ var app = new Vue({
                         console.log(value.data.message);
                     }
                     //console.log(that.houseInfoList);
+                }
+            )
+        },
+        //根据houseId获取房源图片
+        getHousePic:function (houseId) {
+            var that = this;
+            axios.get(that.tIP+that.ohouseIP+"allPathById?houseId="+houseId).then(
+                function (value) {
+                    if(value.data.flag == true){
+                        that.housePicList.push(value.data.data[0].path);
+                    }else {
+                        console.log(value.data.message);
+                    }
                 }
             )
         }
