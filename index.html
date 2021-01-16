@@ -124,88 +124,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
 	<!---banner--->
-	<div class="content">
+	<div class="content" id="app">
 		<div class="place-section">
 			<div class="container">
 				<h2>find your place</h2>
 				<div class="place-grids">
 					<div class="col-md-3 place-grid">
 					<h5> 区域位置 </h5>
-					<select class="sel">
-						<option value="">All Locations</option>
-						<option value="">北蔡</option>
-						<option value="">康桥</option>
-						<option value="">金桥</option>
-						<option value="">花木</option>
-						<option value="">高行</option>
-						</select>
+						<input type="text" class="sel" v-model="address">
 					</div>
 					<div class="col-md-3 place-grid">
-					<h5> 最小面积 </h5>
-					<select class="sel">
-						<option value="">any</option>
-						<option value="">10</option>
-						<option value="">20</option>
-						<option value="">30</option>
-						<option value="">40</option>
-						</select>
+					<h5> 面积 </h5>
+						<input type="text" class="sel" v-model="area">
 					</div>
 					<div class="col-md-3 place-grid">
-					<h5> 最大面积 </h5>
-					<select class="sel">
-						<option value="">any</option>
-						<option value="">800</option>
-						<option value="">500</option>
-						<option value="">300</option>
-						<option value="">200</option>
-						<option value="">100</option>
+					<h5> 租金 </h5>
+						<input type="text" class="sel" v-model="rent">
+					</div>
+					<div class="col-md-3 place-grid">
+						<h5> 房屋类型 </h5>
+						<select class="sel" v-model="typeId">
+							<option v-for="t in typeList" v-text="t.houseTypeName" :value="t.id"></option>
 						</select>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="place-grids">
-					<div class="col-md-4 place-grid1">
-						<h5> 房屋类型 </h5>
-						<select class="sel">
-						<option value="">any</option>
-						<option value="">一室一厅</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-						</select>
-					</div>
-					<div class="col-md-2 place-grid1">
-						<h5> 最低月租 </h5>
-						<select class="sel">
-							<option value="">￥any</option>
-							<option value="">￥500</option>
-							<option value="">￥1000</option>
-							<option value="">￥2000</option>
-							<option value="">￥3000</option>
-							<option value="">￥4000</option>
-							<option value="">￥5000</option>
-							<option value="">￥75000</option>
-							<option value="">￥10000</option>
-						</select>
-					</div>
-					<div class="col-md-2 place-grid1">
-						<h5> 最高月租 </h5>
-						<select class="sel">
-							<option value="">￥any</option>
-							<option value="">￥1000</option>
-							<option value="">￥2000</option>
-							<option value="">￥3000</option>
-							<option value="">￥4000</option>
-							<option value="">￥5000</option>
-							<option value="">￥75000</option>
-							<option value="">￥10000</option>
-						</select>
-					</div>
 					<div class="col-md-4 search">
-					<form action="forrent.html">
-						<input type="submit" value="Search">
-					</form>
+<!--					<form action="forrent.html">-->
+						<input type="submit" value="Search" @click="search(address,area,rent,typeId)">
+<!--					</form>-->
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -489,5 +437,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		},
 		autoplay:true,
 	});
+</script>
+<!-- vue -->
+<script src="js/heikes/Hip.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	var app = new Vue({
+		el:'#app',
+		data:{
+			typeList:[],
+			typeId:'',
+			rent:'',
+			address:'',
+			area:'',
+			houseInfo:[]
+		},
+		mounted:function () {
+			this.houseType()
+		},
+		methods:{
+			//获取房屋类型
+			houseType:function () {
+				axios.get(typeIp+"/font/public/allHouseType").then(function (value) {
+					app.typeList =value.data.data;
+				})
+			},
+			search:function () {
+				// axios.get(houseIp+"/font/public/FrontAll?pageNum=1&pageSize=5&typeId="+this.typeId+"&rent="+this.rent+"&address="+this.address+"&area="+this.area).then(function (value) {
+				// 	app.houseInfo = value.data.data.list;
+				// 	location.href="forrent.html?houseInfo="+app.houseInfo;
+				// })
+				location.href="forrent.html?typeId="+app.typeId+"&rent="+app.rent+"&address="+app.address+"&area="+app.area
+			}
+		}
+	})
 </script>
 </html>>

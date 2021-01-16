@@ -92,108 +92,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="images/menu1.png"></a></li>
 								<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="images/menu.png"></a></li>
 							</ul>
-							<div id="myTabContent" class="tab-content">
+							<div id="app" class="tab-content">
 								<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-									<div class="forsale-grids">
-										<h4><a href="single.html">1200 Anastasia Avenue, Coral Gables</a></h4>
+									<div class="forsale-grids" v-for="h in houseInfo">
+										<h4><a href="javascript:void(0);" v-text="h.estateName" @click="more(h.id)"></a></h4>
 										<div class="forsale1">
 											<div class="forsale-left">
 												<a href="single.html"><img src="images/p6.jpg" class="img-responsive" alt="/"></a>
 											</div>
 											<div class="forsale-right">
-												<h5><label>$</label> 7,500 Per Month - <span>Single Family Home</span></h5>
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-												<a href="single.html"class="button4">more details</a>
+												<h5><label>￥</label><span v-text="h.rent"></span></h5>
+												<p v-text="h.desc"></p>
+												<a href="javascript:void(0);" class="button4" @click="more(h.id)">more details</a>
 											</div>
 											<div class="clearfix"></div>
 											<ul>
-												<li><span> 5000 </span>Area</li>
-												<li><span> 3 </span>Bathrooms</li>
-												<li><span> 3 </span>Bedrooms</li>
-												<li><span> 2 </span>Garages</li>
+												<li v-text="h.area">面积</li>
+												<li v-text="h.typeName"></li>
+<!--												<li><span> 3 </span>Bedrooms</li>-->
+<!--												<li><span> 2 </span>Garages</li>-->
 											</ul>
 										</div>
 									</div>
-									<div class="forsale-grids">
-										<h4><a href="single.html">1200 Anastasia Avenue, Coral Gables</a></h4>
-										<div class="forsale1">
-											<div class="forsale-left">
-												<a href="single.html"><img src="images/p4.jpg" class="img-responsive" alt="/"></a>
-											</div>
-											<div class="forsale-right">
-												<h5><label>$</label> 7,500 Per Month - <span>Villa</span></h5>
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-												<a href="single.html"class="button4">more details</a>
-											</div>
-											<div class="clearfix"></div>
-											<ul>
-												<li><span> 5000 </span>Area</li>
-												<li><span> 3 </span>Bathrooms</li>
-												<li><span> 3 </span>Bedrooms</li>
-												<li><span> 2 </span>Garages</li>
-											</ul>
-										</div>
-									</div>
-									<div class="forsale-grids">
-										<h4><a href="single.html">1200 Anastasia Avenue, Coral Gables</a></h4>
-										<div class="forsale1">
-											<div class="forsale-left">
-												<a href="single.html"><img src="images/p5.jpg" class="img-responsive" alt="/"></a>
-											</div>
-											<div class="forsale-right">
-												<h5><label>$</label> 9,500 Per Month - <span>Single Family Home</span></h5>
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-												<a href="single.html"class="button4">more details</a>
-											</div>
-											<div class="clearfix"></div>
-											<ul>
-												<li><span> 5000 </span>Area</li>
-												<li><span> 3 </span>Bathrooms</li>
-												<li><span> 3 </span>Bedrooms</li>
-												<li><span> 2 </span>Garages</li>
-											</ul>
-										</div>
-									</div>
-									<div class="forsale-grids">
-										<h4><a href="single.html">1909 Bollywood Boulevard</a></h4>
-										<div class="forsale1">
-											<div class="forsale-left">
-												<a href="single.html"><img src="images/p7.jpg" class="img-responsive" alt="/"></a>
-											</div>
-											<div class="forsale-right">
-												<h5><label>$</label> 7,500 Per Month - <span>Single Family Home</span></h5>
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-												<a href="single.html"class="button4">more details</a>
-											</div>
-											<div class="clearfix"></div>
-											<ul>
-												<li><span> 5000 </span>Area</li>
-												<li><span> 3 </span>Bathrooms</li>
-												<li><span> 3 </span>Bedrooms</li>
-												<li><span> 2 </span>Garages</li>
-											</ul>
-										</div>
-									</div>
-									<div class="forsale-grids">
-										<h4><a href="single.html">1200 Anastasia Avenue, Coral Gables</a></h4>
-										<div class="forsale1">
-											<div class="forsale-left">
-												<a href="single.html"><img src="images/p3.jpg" class="img-responsive" alt="/"></a>
-											</div>
-											<div class="forsale-right">
-												<h5><label>$</label> 480,000  Per Month - <span>Single Family Home</span></h5>
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-												<a href="single.html"class="button4">more details</a>
-											</div>
-											<div class="clearfix"></div>
-											<ul>
-												<li><span> 5000 </span>Area</li>
-												<li><span> 3 </span>Bathrooms</li>
-												<li><span> 3 </span>Bedrooms</li>
-												<li><span> 2 </span>Garages</li>
-											</ul>
-										</div>
-									</div>
+
 								</div>
 								<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 									<div class="forsale-grids1">
@@ -432,4 +353,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!--footer-->
 </body>
+<!-- vue -->
+<script src="js/heikes/Hip.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	url = location.search;//获取当前界面url中“？”后面的所有值组成的字符串
+	var paramRequest = new Object();
+	if (url.indexOf("?") != -1) {
+		var str = url.substr(1); //去除“？”，保留之后的所有字符
+		var strs=str.split("&");//切割字符串，把每个参数及参数值分成数组
+		for(var i=0;i<strs.length;i++){
+			paramRequest[strs[i].split("=")[0]]=strs[i].split("=")[1];//前者为参数名称，后台为参数值
+		}
+	}
+	console.log(paramRequest)
+	var app = new Vue({
+		el:'#app',
+		data:{
+			typeList:[],
+			typeId:paramRequest['typeId'],
+			rent:paramRequest['rent'],
+			address:paramRequest['address'],
+			area:paramRequest['area'],
+			houseInfo:[]
+		},
+		mounted:function () {
+			this.houseType()
+			this.search();
+		},
+		methods:{
+			//获取房屋类型
+			houseType:function () {
+				axios.get(typeIp+"/font/public/allHouseType").then(function (value) {
+					app.typeList =value.data.data;
+				})
+			},
+			search:function () {
+				axios.get(houseIp+"/font/public/FrontAll?pageNum=1&pageSize=5&typeId="+this.typeId+"&rent="+this.rent+"&address="+this.address+"&area="+this.area).then(function (value) {
+					app.houseInfo = value.data.data.list;
+					console.log(app.houseInfo)
+				})
+			},
+			more:function (id) {
+				location.href="single.html?id="+id;
+			}
+		}
+	})
+</script>
 </html>

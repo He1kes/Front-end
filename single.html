@@ -101,8 +101,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="blog-grids">
 					<div class="col-md-9 blog-grid">
 						<div class="blog">
-							<h3>小池塘 别墅</h3>
-							<p>2020-11-11 / <a href="#">明灭 仙王</a> / <a href="#">未分类</a> / <a href="#">2 评论</a></p>
+							<h3 v-text="houseInfo.estateName"></h3>
+							<p>2020-11-11 / <a href="javascript:void(0);" v-text="houseInfo.landlordName"></a> / <a href="javascript:void(0);">未分类</a> / <a href="#">2 评论</a></p>
 							<!-- Swiper	-->
 							<div class="swiper-container">
 								<div class="swiper-wrapper">
@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="swiper-button-prev"></div>
 								<div class="swiper-button-next"></div>
 							</div>
-							<span style="color: red;font-size: 33px">￥<span>7777</span><button type="button" class="btn btn-info" style="margin-left: 660px" @click="booking()">预定</button></span>
+							<span style="color: red;font-size: 33px"><span>{{houseInfo.rent}}</span><button type="button" class="btn btn-info" style="margin-left: 660px" @click="booking()">预定</button></span>
 						</div>
 
 						<div class="tags">
@@ -169,19 +169,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h3>具体位置</h3>
 							<div id="container" style="width: 333px;height: 333px"></div>
 						</div>
-						<div class="feature">
-							<h4>Featured Properties</h4>
-							<div class="feature-top">
-								<img src="images/s4.jpg" class="img-responsive" alt="/">
-								<h5>60 Merrick Way, Miami</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
-							<div class="feature-top top2">
-								<img src="images/s3.jpg" class="img-responsive" alt="/">
-								<h5>Villa in Hialeah, Dade</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-							</div>
-						</div>
+<!--						<div class="feature">-->
+<!--							<h4>Featured Properties</h4>-->
+<!--							<div class="feature-top">-->
+<!--								<img src="images/s4.jpg" class="img-responsive" alt="/">-->
+<!--								<h5>60 Merrick Way, Miami</h5>-->
+<!--								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>-->
+<!--							</div>-->
+<!--							<div class="feature-top top2">-->
+<!--								<img src="images/s3.jpg" class="img-responsive" alt="/">-->
+<!--								<h5>Villa in Hialeah, Dade</h5>-->
+<!--								<p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>-->
+<!--							</div>-->
+<!--						</div>-->
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -196,13 +196,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!--footer-->
 </body>
+<!-- vue -->
+<script src="js/heikes/Hip.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
 <script type="text/javascript">
+	var id= location.search.replace(/[^\d]/g, "");
 	new Vue({
 		el:'#app',
 		data:{
 			comment:[],
 			tips:[],
-			show:0
+			show:0,
+			houseInfo:[]
+		},
+		mounted:function(){
+			this.houseDetails();
 		},
 		methods:{
 			Commit_comment:function () {
@@ -215,7 +224,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			},
 			booking:function () {
 				location.href='pay1.html';
-			}
+			},
+			houseDetails:function () {
+				axios.get(houseIp+"/getHouseInfoById?id="+id).then(function (value) {
+					app.houseInfo = value.data.data;
+					console.log(app.houseInfo.rent)
+					// <!--	带点的-->
+					var map = new BMapGL.Map('container');
+					map.centerAndZoom(new BMapGL.Point(app.houseInfo.lng,app.houseInfo.lat), 15);
+					map.enableScrollWheelZoom(true);
+					// 创建点标记
+					var marker = new BMapGL.Marker(new BMapGL.Point(app.houseInfo.lng,app.houseInfo.lat));
+					// 在地图上添加点标记
+					map.addOverlay(marker);
+				})
+			},
 		}
 	})
 </script>
@@ -237,14 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--	map.enableScrollWheelZoom(true);-->
 <!--</script>-->
 <script>
-// <!--	带点的-->
-	var map = new BMapGL.Map('container');
-	map.centerAndZoom(new BMapGL.Point(121.48053886017651,31.235929042252014), 15);
-	map.enableScrollWheelZoom(true);
-	// 创建点标记
-	var marker = new BMapGL.Marker(new BMapGL.Point(121.48053886017651,31.235929042252014));
-	// 在地图上添加点标记
-	map.addOverlay(marker);
+
 </script>
 <!-- Swiper JS -->
 <script src="js/heikes/swiper-bundle.min.js"></script>
